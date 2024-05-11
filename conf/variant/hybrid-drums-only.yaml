@@ -1,7 +1,7 @@
 # @package _global_
 
 dset:
-  segment: 20
+  segment: 11
   sources: ['drums', 'bass', 'other', 'vocals']
   shift: 1
 
@@ -16,7 +16,7 @@ weights: [1., 0., 0., 0.]
 misc:
   #show: true
   verbose: true
-  num_workers: 4
+  num_workers: 0
 
 augment:
   shift_same: false

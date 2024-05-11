@@ -302,26 +302,21 @@ class Solver(object):
         total = len(data_loader)
         if args.max_batches:
             total = min(total, args.max_batches)
-        logger.info("Before LogProgress")
+        logger.info(f"Total length: {total}")
         logprog = LogProgress(logger, data_loader, total=total,
                               updates=self.args.misc.num_prints, name=name)
-        logger.info("After LogProgress")
         averager = EMA()
 
         for idx, sources in enumerate(logprog):
-            logger.info(f"Logprog enumerate {idx}")
+            logger.info(f"Logprog number: {idx}")
             sources = sources.to(self.device)
-            logger.info("Before augment")
             if train:
                 # this does not work at the moment
                 sources = self.augment(sources)
-                logger.info("Immediate after augment")
                 mix = sources.sum(dim=1)
             else:
                 mix = sources[:, 0]
                 sources = sources[:, 1:]
-            
-            logger.info("After augment")
 
             if not train and self.args.valid_apply:
                 estimate = apply_model(self.model, mix, split=self.args.test.split, overlap=0)
@@ -331,8 +326,6 @@ class Solver(object):
                 sources = self.model.transform_target(mix, sources)
             assert estimate.shape == sources.shape, (estimate.shape, sources.shape)
             dims = tuple(range(2, sources.dim()))
-
-            logger.info("After train")
 
             if args.optim.loss == 'l1':
                 loss = F.l1_loss(estimate, sources, reduction='none')
