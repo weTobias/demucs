@@ -30,6 +30,8 @@ augment:
 
 model: hdemucs
 
+batch_size: 4
+
 logs:
     interval: 10
     level: info

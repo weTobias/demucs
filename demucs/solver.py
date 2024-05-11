@@ -314,8 +314,8 @@ class Solver(object):
             logger.info("Before augment")
             if train:
                 # this does not work at the moment
-                #sources = self.augment(sources)
-                #logger.info("Immediate after augment")
+                sources = self.augment(sources)
+                logger.info("Immediate after augment")
                 mix = sources.sum(dim=1)
             else:
                 mix = sources[:, 0]
