@@ -15,3 +15,4 @@ Session.vim
 /misc
 /mdx
 .mypy_cache
+/datasets

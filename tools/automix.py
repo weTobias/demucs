@@ -33,7 +33,7 @@ from demucs.pretrained import SOURCES
 from demucs.wav import build_metadata, Wavset, _get_musdb_valid
 
 
-MUSDB_PATH = '/checkpoint/defossez/datasets/musdbhq'
+MUSDB_PATH = './datasets/musdb18hq'
 EXTRA_WAV_PATH = "/checkpoint/defossez/datasets/allstems_44"
 # WARNING: OUTPATH will be completely erased.
 OUTPATH = Path.home() / 'tmp/demucs_mdx/automix_musdb/'

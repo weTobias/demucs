@@ -64,8 +64,8 @@ def repitch(wav, pitch, tempo, voice=False, quick=False, samplerate=44100):
     Requires `soundstretch` to be installed, see
     https://www.surina.net/soundtouch/soundstretch.html
     """
-    infile = tempfile.NamedTemporaryFile(suffix=".wav")
-    outfile = tempfile.NamedTemporaryFile(suffix=".wav")
+    infile = tempfile.NamedTemporaryFile(suffix=".wav", delete=False)
+    outfile = tempfile.NamedTemporaryFile(suffix=".wav", delete=False)
     save_audio(wav, infile.name, samplerate, clip='clamp')
     command = [
         "soundstretch",

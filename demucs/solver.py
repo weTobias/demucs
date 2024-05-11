@@ -53,10 +53,12 @@ class Solver(object):
         augments = [augment.Shift(shift=int(args.dset.samplerate * args.dset.shift),
                                   same=args.augment.shift_same)]
         if args.augment.flip:
+            logger.info("Setting up flip")
             augments += [augment.FlipChannels(), augment.FlipSign()]
         for aug in ['scale', 'remix']:
             kw = getattr(args.augment, aug)
             if kw.proba:
+                logger.info(f"Setting up {aug}")
                 augments.append(getattr(augment, aug.capitalize())(**kw))
         self.augment = torch.nn.Sequential(*augments)
 
@@ -289,6 +291,7 @@ class Solver(object):
                 break
 
     def _run_one_epoch(self, epoch, train=True):
+        logger.info(f"Start of epoch {epoch}")
         args = self.args
         data_loader = self.loaders['train'] if train else self.loaders['valid']
         if distrib.world_size > 1 and train:
@@ -299,18 +302,26 @@ class Solver(object):
         total = len(data_loader)
         if args.max_batches:
             total = min(total, args.max_batches)
+        logger.info("Before LogProgress")
         logprog = LogProgress(logger, data_loader, total=total,
                               updates=self.args.misc.num_prints, name=name)
+        logger.info("After LogProgress")
         averager = EMA()
 
         for idx, sources in enumerate(logprog):
+            logger.info(f"Logprog enumerate {idx}")
             sources = sources.to(self.device)
+            logger.info("Before augment")
             if train:
-                sources = self.augment(sources)
+                # this does not work at the moment
+                #sources = self.augment(sources)
+                #logger.info("Immediate after augment")
                 mix = sources.sum(dim=1)
             else:
                 mix = sources[:, 0]
                 sources = sources[:, 1:]
+            
+            logger.info("After augment")
 
             if not train and self.args.valid_apply:
                 estimate = apply_model(self.model, mix, split=self.args.test.split, overlap=0)
@@ -320,6 +331,8 @@ class Solver(object):
                 sources = self.model.transform_target(mix, sources)
             assert estimate.shape == sources.shape, (estimate.shape, sources.shape)
             dims = tuple(range(2, sources.dim()))
+
+            logger.info("After train")
 
             if args.optim.loss == 'l1':
                 loss = F.l1_loss(estimate, sources, reduction='none')
