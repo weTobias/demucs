@@ -28,7 +28,7 @@ augment:
     proba: false
   flip: false
 
-model: hdemucs
+model: demucs
 
 batch_size: 4
 
