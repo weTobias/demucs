@@ -130,7 +130,7 @@ def evaluate(solver, compute_sdr=False):
             pendings.append((track.name, pool.submit(
                 eval_track, references, estimates, win=win, hop=hop, compute_sdr=compute_sdr)))
 
-        pendings = LogProgress(logger, pendings, updates=args.misc.num_prints,
+        pendings = LogProgress(logger, pendings, updates=0,
                                name='Eval (BSS)')
         tracks = {}
         for track_name, pending in pendings:
