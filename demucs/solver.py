@@ -291,7 +291,7 @@ class Solver(object):
                 break
 
     def _run_one_epoch(self, epoch, train=True):
-        logger.info(f"Start of epoch {epoch}")
+        logger.info(f"Start of epoch {epoch + 1}")
         args = self.args
         data_loader = self.loaders['train'] if train else self.loaders['valid']
         if distrib.world_size > 1 and train:
@@ -302,13 +302,13 @@ class Solver(object):
         total = len(data_loader)
         if args.max_batches:
             total = min(total, args.max_batches)
-        logger.info(f"Total length: {total}")
+        logger.info(f"Total batches: {total}")
         logprog = LogProgress(logger, data_loader, total=total,
                               updates=self.args.misc.num_prints, name=name)
         averager = EMA()
 
         for idx, sources in enumerate(logprog):
-            logger.info(f"Logprog number: {idx}")
+            logger.info(f"Batch number: {idx + 1}")
             sources = sources.to(self.device)
             if train:
                 # this does not work at the moment
