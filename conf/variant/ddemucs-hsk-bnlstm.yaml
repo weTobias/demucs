@@ -1,0 +1,39 @@
+# @package _global_
+
+dset:
+  segment: 11
+  sources: ['drums', 'bass', 'other', 'vocals']
+  shift: 0
+
+test:
+  every: 10
+
+epochs: 30
+
+save_every: 1
+weights: [1., 0., 0., 0.]
+
+misc:
+  #show: true
+  num_workers: 0
+
+augment:
+  shift_same: false
+  repitch:
+    proba: 0.1
+  remix:
+    proba: false
+  scale:
+    proba: 1
+  flip: false
+
+model: demucs
+
+batch_size: 4
+
+
+demucs:
+  kernel_size: 16
+  stride: 8
+  dconv_depth: 0
+  lstm_layers: 2
