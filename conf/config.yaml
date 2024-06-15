@@ -28,7 +28,7 @@ dset:
 test:
   save: False
   best: True
-  workers: 2
+  workers: 0
   every: 20
   split: true
   shifts: 1
