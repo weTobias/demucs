@@ -27,3 +27,5 @@ dependencies:
     - soundfile
     - submitit
     - treetable>=0.2.3
+    - causal-conv1d>=1.2.0
+    - mamba-ssm

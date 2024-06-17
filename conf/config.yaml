@@ -270,6 +270,30 @@ htdemucs:  # see demucs/htdemucs.py for a detailed description
   # Weight init
   rescale: 0.1
 
+drumamba:  # see demucs/drumamby.py for a detailed description
+  # Channels
+  channels: 64
+  growth: 2
+  # Main structure
+  depth: 6
+  rewrite: true
+  mamba_layers: 0
+  # Convolutions
+  kernel_size: 8
+  stride: 4
+  context: 1
+  # Activations
+  gelu: true
+  glu: true
+  # Normalization
+  norm_groups: 4
+  norm_starts: 4
+  # Pre/post treatment
+  resample: true
+  normalize: false
+  # Weight init
+  rescale: 0.1
+
 svd:  # see svd.py for documentation
   penalty: 0
   min_size: 0.1

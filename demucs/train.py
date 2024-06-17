@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 import sys
 
+from demucs.drumamba import Drumamba
 from dora import hydra_main
 import hydra
 from hydra.core.global_hydra import GlobalHydra
@@ -67,6 +68,7 @@ def get_model(args):
         'hdemucs': HDemucs,
         'htdemucs': HTDemucs,
         'torch_hdemucs': TorchHDemucsWrapper,
+        'drumamba': Drumamba,
     }[args.model]
     kw = OmegaConf.to_container(getattr(args, args.model), resolve=True)
     model = klass(**extra, **kw)
