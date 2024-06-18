@@ -52,7 +52,7 @@ class MambaWrapper(nn.Module):
             d_conv=4,    # Local convolution width
             expand=2,    # Block expansion factor
         )
-        self.linear = nn.Linear(self.num_directions * dim, dim * 2)
+        self.linear = nn.Linear(self.num_directions * dim, dim)
 
     def forward(self, x):
         #logger.info(x.shape)
@@ -63,9 +63,11 @@ class MambaWrapper(nn.Module):
         x = self.mamba(x)
         #logger.info('After mamba')
         #logger.info(x.shape)
-        #x = self.linear(x)
+        #x = x.permute(1, 0, 2)
+        x = self.linear(x)
         #logger.info('After linear')
         #logger.info(x.shape)
+        #x = x.permute(1, 2, 0)
         x = x.permute(0, 2, 1)
         #logger.info('After permute 2')
         #logger.info(x.shape)
