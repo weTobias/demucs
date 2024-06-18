@@ -52,7 +52,10 @@ class MambaWrapper(nn.Module):
             d_conv=4,    # Local convolution width
             expand=2,    # Block expansion factor
         )
-        self.linear = nn.Linear(self.num_directions * dim, dim)
+        #self.linear = nn.Linear(self.num_directions * dim, dim)
+        self.conv = nn.Conv1d(self.num_directions * dim, dim, 1)
+        self.norm_fn = nn.GroupNorm(1, dim)
+        self.act = nn.GELU()
 
     def forward(self, x):
         #logger.info(x.shape)
@@ -64,7 +67,7 @@ class MambaWrapper(nn.Module):
         #logger.info('After mamba')
         #logger.info(x.shape)
         #x = x.permute(1, 0, 2)
-        x = self.linear(x)
+        #x = self.linear(x)
         #logger.info('After linear')
         #logger.info(x.shape)
         #x = x.permute(1, 2, 0)
@@ -72,6 +75,9 @@ class MambaWrapper(nn.Module):
         #logger.info('After permute 2')
         #logger.info(x.shape)
         #assert False
+        x = self.conv(x)
+        x = self.norm_fn(x)
+        x = self.act(x)
         return x
 
 
