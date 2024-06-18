@@ -278,6 +278,7 @@ drumamba:  # see demucs/drumamby.py for a detailed description
   depth: 6
   rewrite: true
   mamba_layers: 0
+  bi_mamba: False
   # Convolutions
   kernel_size: 8
   stride: 4

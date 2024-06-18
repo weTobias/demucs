@@ -42,10 +42,8 @@ class MambaWrapper(nn.Module):
     """
     Wrapper for Mamba.
     """
-    def __init__(self, dim, layers=1, bidirectional=False):
+    def __init__(self, dim):
         super().__init__()
-        self.bidirectional = bidirectional
-        self.num_directions = 2 if bidirectional else 1
         self.mamba = Mamba(
             d_model=dim, # Model dimension d_model
             d_state=16,  # SSM state expansion factor
@@ -53,7 +51,7 @@ class MambaWrapper(nn.Module):
             expand=2,    # Block expansion factor
         )
         #self.linear = nn.Linear(self.num_directions * dim, dim)
-        self.conv = nn.Conv1d(self.num_directions * dim, dim, 1)
+        self.conv = nn.Conv1d(dim, dim, 1)
         self.norm_fn = nn.GroupNorm(1, dim)
         self.act = nn.GELU()
 
@@ -79,6 +77,46 @@ class MambaWrapper(nn.Module):
         x = self.norm_fn(x)
         x = self.act(x)
         return x
+    
+class BiMambaWrapper(nn.Module):
+    """
+    Bidirectional Mamba.
+    """
+    def __init__(self, dim):
+        super().__init__()
+        self.mamba_forw = Mamba(
+            d_model=dim, # Model dimension d_model
+            d_state=16,  # SSM state expansion factor
+            d_conv=4,    # Local convolution width
+            expand=2,    # Block expansion factor
+        )
+        self.mamba_back = Mamba(
+            d_model=dim, # Model dimension d_model
+            d_state=16,  # SSM state expansion factor
+            d_conv=4,    # Local convolution width
+            expand=2,    # Block expansion factor
+        )
+        self.conv = nn.Conv1d(2 * dim, 2 * dim, 1)
+        self.norm_fn = nn.GroupNorm(1, 2 * dim)
+        self.act = nn.GLU(1)
+
+    def forward(self, x):
+        x = x.permute(0, 2, 1)
+
+        x_back = x.flip(dims=(1,))
+
+        x = self.mamba_forw(x)
+
+        x_back = self.mamba_back(x_back)
+
+        x = torch.cat((x, x_back), dim=2)
+        x = x.permute(0, 2, 1)
+        
+        x = self.conv(x)
+        x = self.norm_fn(x)
+        x = self.act(x)
+        
+        return x
 
 
 class Drumamba(nn.Module):
@@ -93,6 +131,7 @@ class Drumamba(nn.Module):
                  depth=6,
                  rewrite=True,
                  mamba_layers=0,
+                 bi_mamba=False,
                  # Convolutions
                  kernel_size=8,
                  stride=4,
@@ -124,6 +163,7 @@ class Drumamba(nn.Module):
             mamba_layers (int): number of mamba layers, 0 = no lstm. Deactivated
                 by default, as this is now replaced by the smaller and faster small LSTMs
                 in the DConv branches.
+            bi_mamba (bool): use bidirectional mamba instead of simple mamba.
             kernel_size (int): kernel size for convolutions
             stride (int): stride for convolutions
             context (int): kernel size of the convolution in the
@@ -210,7 +250,7 @@ class Drumamba(nn.Module):
 
         channels = in_channels
         if mamba_layers:
-            self.mamba = MambaWrapper(channels)
+            self.mamba = BiMambaWrapper(channels) if bi_mamba else MambaWrapper(channels)
         else:
             self.mamba = None
 
