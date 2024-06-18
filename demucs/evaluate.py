@@ -127,8 +127,8 @@ def evaluate(solver, compute_sdr=False):
                 for name, estimate in zip(model.sources, estimates):
                     save_audio(estimate.cpu(), folder / (name + ".mp3"), model.samplerate)
 
-            pendings.append((track.name, pool.submit(
-                eval_track, references, estimates, win=win, hop=hop, compute_sdr=compute_sdr)))
+            result = eval_track(references=references, estimates=estimates, win=win, hop=hop, compute_sdr=compute_sdr)
+            pendings.append((track.name, pool.submit(lambda : result)))
 
         pendings = LogProgress(logger, pendings, updates=0,
                                name='Eval (BSS)')

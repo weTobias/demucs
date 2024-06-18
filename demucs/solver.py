@@ -308,7 +308,6 @@ class Solver(object):
         averager = EMA()
 
         for idx, sources in enumerate(logprog):
-            logger.info(f"Batch number: {idx + 1}")
             sources = sources.to(self.device)
             if train:
                 # this does not work at the moment

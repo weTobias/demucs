@@ -33,7 +33,7 @@ test:
   split: true
   shifts: 1
   overlap: 0.25
-  sdr: true
+  sdr: false
   metric: 'loss'  # metric used for best model selection on the valid set, can also be nsdr
   nonhq:   # path to non hq MusDB for evaluation
 
