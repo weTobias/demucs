@@ -74,8 +74,8 @@ class MambaWrapper(nn.Module):
         #logger.info(x.shape)
         #assert False
         x = self.conv(x)
-        x = self.norm_fn(x)
         x = self.act(x)
+        x = self.norm_fn(x)
         return x
     
 class BiMambaWrapper(nn.Module):
@@ -97,8 +97,9 @@ class BiMambaWrapper(nn.Module):
             expand=2,    # Block expansion factor
         )
         self.conv = nn.Conv1d(2 * dim, 2 * dim, 1)
-        self.norm_fn = nn.GroupNorm(1, 2 * dim)
         self.act = nn.GLU(1)
+        self.norm_fn = nn.GroupNorm(1, dim)
+
 
     def forward(self, x):
         x = x.permute(0, 2, 1)
@@ -113,8 +114,8 @@ class BiMambaWrapper(nn.Module):
         x = x.permute(0, 2, 1)
         
         x = self.conv(x)
-        x = self.norm_fn(x)
         x = self.act(x)
+        x = self.norm_fn(x)
         
         return x
 
@@ -222,13 +223,13 @@ class Drumamba(nn.Module):
             encode = []
             encode += [
                 nn.Conv1d(in_channels, channels, kernel_size, stride),
-                norm_fn(channels),
                 act2(),
+                norm_fn(channels),
             ]
             if rewrite:
                 encode += [
                     nn.Conv1d(channels, ch_scale * channels, 1),
-                    norm_fn(ch_scale * channels), activation]
+                    activation, norm_fn(channels)]
             self.encoder.append(nn.Sequential(*encode))
 
             decode = []
@@ -239,11 +240,11 @@ class Drumamba(nn.Module):
             if rewrite:
                 decode += [
                     nn.Conv1d(channels, ch_scale * channels, 2 * context + 1, padding=context),
-                    norm_fn(ch_scale * channels), activation]
+                    activation, norm_fn(channels)]
             decode += [nn.ConvTranspose1d(channels, out_channels,
                        kernel_size, stride, padding=padding)]
             if index > 0:
-                decode += [norm_fn(out_channels), act2()]
+                decode += [act2(), norm_fn(out_channels)]
             self.decoder.insert(0, nn.Sequential(*decode))
             in_channels = channels
             channels = int(growth * channels)
