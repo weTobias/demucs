@@ -251,7 +251,9 @@ class Drumamba(nn.Module):
 
         channels = in_channels
         if mamba_layers:
-            self.mamba = BiMambaWrapper(channels) if bi_mamba else MambaWrapper(channels)
+            self.mamba = nn.ModuleList(
+                [BiMambaWrapper(channels) if bi_mamba else MambaWrapper(channels) for i in range(mamba_layers)]
+            )
         else:
             self.mamba = None
 
@@ -305,8 +307,8 @@ class Drumamba(nn.Module):
             x = encode(x)
             saved.append(x)
 
-        if self.mamba:
-            x = self.mamba(x)
+        for mamba in self.mamba:
+            x = mamba(x)
 
         for decode in self.decoder:
             skip = saved.pop(-1)
