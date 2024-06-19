@@ -82,23 +82,23 @@ class BiMambaWrapper(nn.Module):
     """
     Bidirectional Mamba.
     """
-    def __init__(self, dim):
+    def __init__(self, dim_in, dim_out):
         super().__init__()
         self.mamba_forw = Mamba(
-            d_model=dim, # Model dimension d_model
+            d_model=dim_in, # Model dimension d_model
             d_state=16,  # SSM state expansion factor
             d_conv=4,    # Local convolution width
             expand=2,    # Block expansion factor
         )
         self.mamba_back = Mamba(
-            d_model=dim, # Model dimension d_model
+            d_model=dim_in, # Model dimension d_model
             d_state=16,  # SSM state expansion factor
             d_conv=4,    # Local convolution width
             expand=2,    # Block expansion factor
         )
-        self.conv = nn.Conv1d(2 * dim, 2 * dim, 1)
+        self.conv = nn.Conv1d(2 * dim_in, 2 * dim_out, 1)
         self.act = nn.GLU(1)
-        self.norm_fn = nn.GroupNorm(1, dim)
+        self.norm_fn = nn.GroupNorm(1, dim_out)
 
 
     def forward(self, x):
@@ -252,7 +252,7 @@ class Drumamba(nn.Module):
         channels = in_channels
         if mamba_layers:
             self.mamba = nn.ModuleList(
-                [BiMambaWrapper(channels) if bi_mamba else MambaWrapper(channels) for i in range(mamba_layers)]
+                [BiMambaWrapper(channels, channels) if bi_mamba else MambaWrapper(channels) for i in range(mamba_layers)]
             )
         else:
             self.mamba = None
