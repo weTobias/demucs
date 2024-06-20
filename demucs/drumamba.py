@@ -210,6 +210,7 @@ class Drumamba(nn.Module):
                  comp_res_comp=4,
                  comp_res_mamba=4,
                  comp_res_init=1e-4,
+                 comp_res_start=0,
                  # Pre/post processing
                  normalize=True,
                  resample=True,
@@ -245,6 +246,7 @@ class Drumamba(nn.Module):
             comp_res_comp: compression of CompRes branch.
             comp_res_mamba: adds a Mamba layer in CompRes branch starting at this layer.
             comp_res_init: initial scale for the CompRes branch LayerScale.
+            comp_res_start: starting layer for CompRes.
             normalize (bool): normalizes the input audio on the fly, and scales back
                 the output by the same amount.
             resample (bool): upsample x2 the input and downsample /2 the output.
@@ -298,7 +300,7 @@ class Drumamba(nn.Module):
             ]
 
             mamba = index >= comp_res_mamba
-            if comp_res_mode & 1:
+            if comp_res_mode & 1 and index >= comp_res_start:
                 encode += [CompRes(channels, depth=comp_res_depth, init=comp_res_init,
                                  compress=comp_res_comp, mamba=mamba)]
             if rewrite:
@@ -316,7 +318,7 @@ class Drumamba(nn.Module):
                 decode += [
                     nn.Conv1d(channels, ch_scale * channels, 2 * context + 1, padding=context),
                     activation, norm_fn(channels)]
-            if comp_res_mode & 2:
+            if comp_res_mode & 2 and index >= comp_res_start:
                 decode += [CompRes(channels, depth=comp_res_depth, init=comp_res_init,
                                  compress=comp_res_comp, mamba=mamba)]
             decode += [nn.ConvTranspose1d(channels, out_channels,

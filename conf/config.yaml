@@ -295,6 +295,7 @@ drumamba:  # see demucs/drumamby.py for a detailed description
   comp_res_comp: 4
   comp_res_mamba: 4
   comp_res_init: 1e-4
+  comp_res_start: 0
   # Pre/post treatment
   resample: true
   normalize: false
