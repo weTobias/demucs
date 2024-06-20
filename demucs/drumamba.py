@@ -118,6 +118,67 @@ class BiMambaWrapper(nn.Module):
         x = self.norm_fn(x)
         
         return x
+    
+class DConv(nn.Module):
+    """
+    New residual branches in each encoder layer.
+    This alternates dilated convolutions, potentially with Mamba.
+    Also before entering each residual branch, dimension is projected on a smaller subspace,
+    e.g. of dim `channels // compress`.
+    """
+    def __init__(self, channels: int, compress: float = 4, depth: int = 2, init: float = 1e-4,
+                 mamba=False, kernel=3):
+        """
+        Args:
+            channels: input/output channels for residual branch.
+            compress: amount of channel compression inside the branch.
+            depth: number of layers in the residual branch. Each layer has its own
+                projection, and potentially Mamba.
+            init: initial scale for LayerNorm.
+            mamba: use Mamba.
+            kernel: kernel size for the (dilated) convolutions.
+        """
+
+        super().__init__()
+        assert kernel % 2 == 1
+        self.channels = channels
+        self.compress = compress
+        self.depth = abs(depth)
+        dilate = depth > 0
+
+        norm_fn = lambda d: nn.GroupNorm(1, d)  # noqa
+
+        hidden = int(channels / compress)
+
+        act = nn.GELU
+
+        self.layers = nn.ModuleList([])
+        for d in range(self.depth):
+            dilation = 2 ** d if dilate else 1
+            padding = dilation * (kernel // 2)
+            mods = [] 
+            if mamba:
+                mods = [
+                    nn.Conv1d(channels, hidden, kernel, dilation=dilation, padding=padding),
+                    norm_fn(hidden), act(),
+                    nn.Conv1d(hidden, 2 * channels, 1),
+                    norm_fn(2 * channels), nn.GLU(1),
+                    LayerScale(channels, init),
+                ]
+            else:
+                mods = [
+                    nn.Conv1d(channels, hidden, kernel, dilation=dilation, padding=padding),
+                    norm_fn(hidden), act(),
+                    BiMambaWrapper(hidden, channels),
+                    LayerScale(channels, init),
+                ]
+            layer = nn.Sequential(*mods)
+            self.layers.append(layer)
+
+    def forward(self, x):
+        for layer in self.layers:
+            x = x + layer(x)
+        return x
 
 
 class Drumamba(nn.Module):
@@ -143,6 +204,12 @@ class Drumamba(nn.Module):
                  # Normalization
                  norm_starts=4,
                  norm_groups=4,
+                 # DConv residual branch
+                 dconv_mode=1,
+                 dconv_depth=2,
+                 dconv_comp=4,
+                 dconv_mamba=4,
+                 dconv_init=1e-4,
                  # Pre/post processing
                  normalize=True,
                  resample=True,
@@ -175,6 +242,11 @@ class Drumamba(nn.Module):
             norm_starts: layer at which group norm starts being used.
                 decoder layers are numbered in reverse order.
             norm_groups: number of groups for group norm.
+            dconv_mode: if 1: dconv in encoder only, 2: decoder only, 3: both.
+            dconv_depth: depth of residual DConv branch.
+            dconv_comp: compression of DConv branch.
+            dconv_mamba: adds a Mamba layer in DConv branch starting at this layer.
+            dconv_init: initial scale for the DConv branch LayerScale.
             normalize (bool): normalizes the input audio on the fly, and scales back
                 the output by the same amount.
             resample (bool): upsample x2 the input and downsample /2 the output.
@@ -226,6 +298,11 @@ class Drumamba(nn.Module):
                 act2(),
                 norm_fn(channels),
             ]
+
+            mamba = index >= dconv_mamba
+            if dconv_mode & 1:
+                encode += [DConv(channels, depth=dconv_depth, init=dconv_init,
+                                 compress=dconv_comp, mamba=mamba)]
             if rewrite:
                 encode += [
                     nn.Conv1d(channels, ch_scale * channels, 1),
@@ -241,6 +318,9 @@ class Drumamba(nn.Module):
                 decode += [
                     nn.Conv1d(channels, ch_scale * channels, 2 * context + 1, padding=context),
                     activation, norm_fn(channels)]
+            if dconv_mode & 2:
+                decode += [DConv(channels, depth=dconv_depth, init=dconv_init,
+                                 compress=dconv_comp, mamba=mamba)]
             decode += [nn.ConvTranspose1d(channels, out_channels,
                        kernel_size, stride, padding=padding)]
             if index > 0:
@@ -307,8 +387,9 @@ class Drumamba(nn.Module):
             x = encode(x)
             saved.append(x)
 
-        for mamba in self.mamba:
-            x = mamba(x)
+        if self.mamba:
+            for mamba in self.mamba:
+                x = mamba(x)
 
         for decode in self.decoder:
             skip = saved.pop(-1)
@@ -321,14 +402,3 @@ class Drumamba(nn.Module):
         x = center_trim(x, length)
         x = x.view(x.size(0), len(self.sources), self.audio_channels, x.size(-1))
         return x
-
-    def load_state_dict(self, state, strict=True):
-        # fix a mismatch with previous generation Demucs models.
-        for idx in range(self.depth):
-            for a in ['encoder', 'decoder']:
-                for b in ['bias', 'weight']:
-                    new = f'{a}.{idx}.3.{b}'
-                    old = f'{a}.{idx}.2.{b}'
-                    if old in state and new not in state:
-                        state[new] = state.pop(old)
-        super().load_state_dict(state, strict=strict)
