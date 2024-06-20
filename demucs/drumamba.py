@@ -119,7 +119,7 @@ class BiMambaWrapper(nn.Module):
         
         return x
     
-class DConv(nn.Module):
+class CompRes(nn.Module):
     """
     New residual branches in each encoder layer.
     This alternates dilated convolutions, potentially with Mamba.
@@ -204,12 +204,12 @@ class Drumamba(nn.Module):
                  # Normalization
                  norm_starts=4,
                  norm_groups=4,
-                 # DConv residual branch
-                 dconv_mode=1,
-                 dconv_depth=2,
-                 dconv_comp=4,
-                 dconv_mamba=4,
-                 dconv_init=1e-4,
+                 # CompRes residual branch
+                 comp_res_mode=1,
+                 comp_res_depth=2,
+                 comp_res_comp=4,
+                 comp_res_mamba=4,
+                 comp_res_init=1e-4,
                  # Pre/post processing
                  normalize=True,
                  resample=True,
@@ -228,9 +228,7 @@ class Drumamba(nn.Module):
                 for each layer of the encoder (resp decoder)
             depth (int): number of layers in the encoder and in the decoder.
             rewrite (bool): add 1x1 convolution to each layer.
-            mamba_layers (int): number of mamba layers, 0 = no lstm. Deactivated
-                by default, as this is now replaced by the smaller and faster small LSTMs
-                in the DConv branches.
+            mamba_layers (int): number of mamba layers, 0 = no mamba.
             bi_mamba (bool): use bidirectional mamba instead of simple mamba.
             kernel_size (int): kernel size for convolutions
             stride (int): stride for convolutions
@@ -242,11 +240,11 @@ class Drumamba(nn.Module):
             norm_starts: layer at which group norm starts being used.
                 decoder layers are numbered in reverse order.
             norm_groups: number of groups for group norm.
-            dconv_mode: if 1: dconv in encoder only, 2: decoder only, 3: both.
-            dconv_depth: depth of residual DConv branch.
-            dconv_comp: compression of DConv branch.
-            dconv_mamba: adds a Mamba layer in DConv branch starting at this layer.
-            dconv_init: initial scale for the DConv branch LayerScale.
+            comp_res_mode: if 1: CompRes in encoder only, 2: decoder only, 3: both.
+            comp_res_depth: depth of residual CompRes branch.
+            comp_res_comp: compression of CompRes branch.
+            comp_res_mamba: adds a Mamba layer in CompRes branch starting at this layer.
+            comp_res_init: initial scale for the CompRes branch LayerScale.
             normalize (bool): normalizes the input audio on the fly, and scales back
                 the output by the same amount.
             resample (bool): upsample x2 the input and downsample /2 the output.
@@ -299,10 +297,10 @@ class Drumamba(nn.Module):
                 norm_fn(channels),
             ]
 
-            mamba = index >= dconv_mamba
-            if dconv_mode & 1:
-                encode += [DConv(channels, depth=dconv_depth, init=dconv_init,
-                                 compress=dconv_comp, mamba=mamba)]
+            mamba = index >= comp_res_mamba
+            if comp_res_mode & 1:
+                encode += [CompRes(channels, depth=comp_res_depth, init=comp_res_init,
+                                 compress=comp_res_comp, mamba=mamba)]
             if rewrite:
                 encode += [
                     nn.Conv1d(channels, ch_scale * channels, 1),
@@ -318,9 +316,9 @@ class Drumamba(nn.Module):
                 decode += [
                     nn.Conv1d(channels, ch_scale * channels, 2 * context + 1, padding=context),
                     activation, norm_fn(channels)]
-            if dconv_mode & 2:
-                decode += [DConv(channels, depth=dconv_depth, init=dconv_init,
-                                 compress=dconv_comp, mamba=mamba)]
+            if comp_res_mode & 2:
+                decode += [CompRes(channels, depth=comp_res_depth, init=comp_res_init,
+                                 compress=comp_res_comp, mamba=mamba)]
             decode += [nn.ConvTranspose1d(channels, out_channels,
                        kernel_size, stride, padding=padding)]
             if index > 0:

@@ -34,4 +34,4 @@ batch_size: 4
 
 drumamba:
   mamba_layers: 0
-  dconv_mode: 2
+  comp_res_mode: 1

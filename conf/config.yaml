@@ -289,12 +289,12 @@ drumamba:  # see demucs/drumamby.py for a detailed description
   # Normalization
   norm_groups: 4
   norm_starts: 4
-  # DConv residual branch
-  dconv_depth: 1
-  dconv_mode: 0  # 0 = no dconv, 1 = branch in encoder, 2 = in decoder, 3 = in both.
-  dconv_comp: 4
-  dconv_mamba: 4
-  dconv_init: 1e-4
+  # Compressed residual branch
+  comp_res_depth: 1
+  comp_res_mode: 0  # 0 = no comp res, 1 = branch in encoder, 2 = in decoder, 3 = in both.
+  comp_res_comp: 4
+  comp_res_mamba: 4
+  comp_res_init: 1e-4
   # Pre/post treatment
   resample: true
   normalize: false
