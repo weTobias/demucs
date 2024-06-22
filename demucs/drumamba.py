@@ -180,6 +180,26 @@ class CompRes(nn.Module):
             x = x + layer(x)
         return x
 
+class ResMamba(nn.Module):
+    """
+    Residual Mamba branch.
+    """
+    def __init__(self, channels: int, depth: int = 1):
+        """
+        Args:
+            channels: input/output channels for residual branch.
+            depth: number of layers in the residual branch.
+            init: initial scale for LayerNorm.
+        """
+
+        super().__init__()
+
+        self.layers = nn.ModuleList([BiMambaWrapper(channels, channels) for i in range(depth)])
+
+    def forward(self, x):
+        for layer in self.layers:
+            x = x + layer(x)
+        return x
 
 class Drumamba(nn.Module):
     @capture_init
@@ -211,6 +231,10 @@ class Drumamba(nn.Module):
                  comp_res_mamba=4,
                  comp_res_init=1e-4,
                  comp_res_start=0,
+                 # ResMamba residual branches
+                 res_mamba_mode=0,
+                 res_mamba_start=0,
+                 res_mamba_depth=1,
                  # Pre/post processing
                  normalize=True,
                  resample=True,
@@ -247,6 +271,9 @@ class Drumamba(nn.Module):
             comp_res_mamba: adds a Mamba layer in CompRes branch starting at this layer.
             comp_res_init: initial scale for the CompRes branch LayerScale.
             comp_res_start: starting layer for CompRes.
+            res_mamba_mode: if 1: ResMamba in encoder only, 2: decoder only, 3: both.
+            res_mamba_start: starting layer for ResMamaba.
+            res_mamba_depth: depth of residual ResMamba branch.
             normalize (bool): normalizes the input audio on the fly, and scales back
                 the output by the same amount.
             resample (bool): upsample x2 the input and downsample /2 the output.
@@ -303,6 +330,8 @@ class Drumamba(nn.Module):
             if comp_res_mode & 1 and index >= comp_res_start:
                 encode += [CompRes(channels, depth=comp_res_depth, init=comp_res_init,
                                  compress=comp_res_comp, mamba=mamba)]
+            if res_mamba_mode & 1 and index >= res_mamba_start:
+                encode += [ResMamba(channels, depth=res_mamba_depth)]
             if rewrite:
                 encode += [
                     nn.Conv1d(channels, ch_scale * channels, 1),
@@ -321,6 +350,8 @@ class Drumamba(nn.Module):
             if comp_res_mode & 2 and index >= comp_res_start:
                 decode += [CompRes(channels, depth=comp_res_depth, init=comp_res_init,
                                  compress=comp_res_comp, mamba=mamba)]
+            if res_mamba_mode & 2 and index >= res_mamba_start:
+                decode += [ResMamba(channels, depth=res_mamba_depth)]
             decode += [nn.ConvTranspose1d(channels, out_channels,
                        kernel_size, stride, padding=padding)]
             if index > 0:

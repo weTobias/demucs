@@ -296,6 +296,10 @@ drumamba:  # see demucs/drumamby.py for a detailed description
   comp_res_mamba: 4
   comp_res_init: 1e-4
   comp_res_start: 0
+  # Residual mamba branch
+  res_mamba_mode: 0 # 0 = no res mamba, 1 = branch in encoder, 2 = in decoder, 3 = in both.
+  res_mamba_depth: 1
+  res_mamba_start: 0
   # Pre/post treatment
   resample: true
   normalize: false
