@@ -1,0 +1,578 @@
+[2024-06-24 18:06:24,960][demucs.train][INFO] - For logs, checkpoints and samples check /home/dat/Dokumente/weigl-master/demucs/outputs/xps/2d9ba778
+[2024-06-24 18:06:24,960][dora.distrib][INFO] - world_size is 1, skipping init.
+[2024-06-24 18:06:28,767][demucs.train][INFO] - train/valid set size: 1791 14
+[2024-06-24 18:06:28,768][demucs.solver][INFO] - Setting up scale
+[2024-06-24 18:06:28,769][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:06:28,769][demucs.solver][INFO] - Training...
+[2024-06-24 18:06:28,769][demucs.solver][INFO] - Start of epoch 1
+[2024-06-24 18:06:28,769][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 18:09:10,915][demucs.solver][INFO] - Train | Epoch 1 | 111/447 | 0.69 it/sec | Loss 0.1701 | Reco 0.1701 | Grad 0.0908
+[2024-06-24 18:11:31,594][demucs.solver][INFO] - Train | Epoch 1 | 222/447 | 0.74 it/sec | Loss 0.1690 | Reco 0.1690 | Grad 0.1066
+[2024-06-24 18:13:50,656][demucs.solver][INFO] - Train | Epoch 1 | 333/447 | 0.76 it/sec | Loss 0.1680 | Reco 0.1680 | Grad 0.1172
+[2024-06-24 18:16:11,919][demucs.solver][INFO] - Train | Epoch 1 | 444/447 | 0.76 it/sec | Loss 0.1664 | Reco 0.1664 | Grad 0.1211
+[2024-06-24 18:16:15,209][demucs.solver][INFO] - [1mTrain Summary | Epoch 1 | Loss=0.1664 | Reco=0.1664 | Grad=0.1209[0m
+[2024-06-24 18:16:15,209][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:16:15,209][demucs.solver][INFO] - Cross validation...
+[2024-06-24 18:16:15,210][demucs.solver][INFO] - Start of epoch 1
+[2024-06-24 18:16:15,210][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 18:16:22,644][demucs.solver][INFO] - Valid | Epoch 1 | 3/14 | 0.54 it/sec | Loss 0.2339 | Reco 0.2339 | Nsdr 1.980
+[2024-06-24 18:16:30,747][demucs.solver][INFO] - Valid | Epoch 1 | 6/14 | 0.45 it/sec | Loss 0.2438 | Reco 0.2438 | Nsdr 1.776
+[2024-06-24 18:16:39,181][demucs.solver][INFO] - Valid | Epoch 1 | 9/14 | 0.42 it/sec | Loss 0.2613 | Reco 0.2613 | Nsdr 1.585
+[2024-06-24 18:16:45,920][demucs.solver][INFO] - Valid | Epoch 1 | 12/14 | 0.42 it/sec | Loss 0.2414 | Reco 0.2414 | Nsdr 1.584
+[2024-06-24 18:16:48,057][demucs.solver][INFO] - [1mValid Summary | Epoch 1 | Loss=0.2328 | Reco=0.2328 | Nsdr=1.636 | Best=0.2328 | Bname=main[0m
+[2024-06-24 18:16:48,057][demucs.solver][INFO] - [1mNew best valid loss 0.2328[0m
+[2024-06-24 18:16:51,418][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:16:51,420][demucs.solver][INFO] - Training...
+[2024-06-24 18:16:51,421][demucs.solver][INFO] - Start of epoch 2
+[2024-06-24 18:16:51,421][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 18:19:21,982][demucs.solver][INFO] - Train | Epoch 2 | 111/447 | 0.74 it/sec | Loss 0.1656 | Reco 0.1656 | Grad 0.1312
+[2024-06-24 18:21:43,820][demucs.solver][INFO] - Train | Epoch 2 | 222/447 | 0.76 it/sec | Loss 0.1580 | Reco 0.1580 | Grad 0.1303
+[2024-06-24 18:24:01,844][demucs.solver][INFO] - Train | Epoch 2 | 333/447 | 0.78 it/sec | Loss 0.1530 | Reco 0.1530 | Grad 0.1308
+[2024-06-24 18:26:23,084][demucs.solver][INFO] - Train | Epoch 2 | 444/447 | 0.78 it/sec | Loss 0.1510 | Reco 0.1510 | Grad 0.1376
+[2024-06-24 18:26:25,612][demucs.solver][INFO] - [1mTrain Summary | Epoch 2 | Loss=0.1512 | Reco=0.1512 | Grad=0.1376[0m
+[2024-06-24 18:26:25,612][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:26:25,612][demucs.solver][INFO] - Cross validation...
+[2024-06-24 18:26:25,613][demucs.solver][INFO] - Start of epoch 2
+[2024-06-24 18:26:25,613][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 18:26:33,191][demucs.solver][INFO] - Valid | Epoch 2 | 3/14 | 0.53 it/sec | Loss 0.1972 | Reco 0.1972 | Nsdr 4.195
+[2024-06-24 18:26:41,373][demucs.solver][INFO] - Valid | Epoch 2 | 6/14 | 0.44 it/sec | Loss 0.1918 | Reco 0.1918 | Nsdr 4.312
+[2024-06-24 18:26:49,788][demucs.solver][INFO] - Valid | Epoch 2 | 9/14 | 0.41 it/sec | Loss 0.2139 | Reco 0.2139 | Nsdr 3.697
+[2024-06-24 18:26:56,600][demucs.solver][INFO] - Valid | Epoch 2 | 12/14 | 0.42 it/sec | Loss 0.2048 | Reco 0.2048 | Nsdr 3.467
+[2024-06-24 18:26:58,733][demucs.solver][INFO] - [1mValid Summary | Epoch 2 | Loss=0.1972 | Reco=0.1972 | Nsdr=3.603 | Best=0.1972 | Bname=main[0m
+[2024-06-24 18:26:58,734][demucs.solver][INFO] - [1mNew best valid loss 0.1972[0m
+[2024-06-24 18:27:07,132][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:27:07,132][demucs.solver][INFO] - Training...
+[2024-06-24 18:27:07,132][demucs.solver][INFO] - Start of epoch 3
+[2024-06-24 18:27:07,133][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 18:29:32,188][demucs.solver][INFO] - Train | Epoch 3 | 111/447 | 0.77 it/sec | Loss 0.1395 | Reco 0.1395 | Grad 0.1462
+[2024-06-24 18:31:56,583][demucs.solver][INFO] - Train | Epoch 3 | 222/447 | 0.77 it/sec | Loss 0.1372 | Reco 0.1372 | Grad 0.1384
+[2024-06-24 18:34:11,382][demucs.solver][INFO] - Train | Epoch 3 | 333/447 | 0.79 it/sec | Loss 0.1379 | Reco 0.1379 | Grad 0.1465
+[2024-06-24 18:36:32,527][demucs.solver][INFO] - Train | Epoch 3 | 444/447 | 0.79 it/sec | Loss 0.1396 | Reco 0.1396 | Grad 0.1452
+[2024-06-24 18:36:35,047][demucs.solver][INFO] - [1mTrain Summary | Epoch 3 | Loss=0.1395 | Reco=0.1395 | Grad=0.1456[0m
+[2024-06-24 18:36:35,048][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:36:35,048][demucs.solver][INFO] - Cross validation...
+[2024-06-24 18:36:35,048][demucs.solver][INFO] - Start of epoch 3
+[2024-06-24 18:36:35,049][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 18:36:42,617][demucs.solver][INFO] - Valid | Epoch 3 | 3/14 | 0.53 it/sec | Loss 0.2002 | Reco 0.2002 | Nsdr 4.179
+[2024-06-24 18:36:50,708][demucs.solver][INFO] - Valid | Epoch 3 | 6/14 | 0.45 it/sec | Loss 0.1914 | Reco 0.1914 | Nsdr 4.354
+[2024-06-24 18:36:58,924][demucs.solver][INFO] - Valid | Epoch 3 | 9/14 | 0.42 it/sec | Loss 0.2107 | Reco 0.2107 | Nsdr 3.824
+[2024-06-24 18:37:05,583][demucs.solver][INFO] - Valid | Epoch 3 | 12/14 | 0.43 it/sec | Loss 0.2059 | Reco 0.2059 | Nsdr 3.496
+[2024-06-24 18:37:07,733][demucs.solver][INFO] - [1mValid Summary | Epoch 3 | Loss=0.1983 | Reco=0.1983 | Nsdr=3.610 | Best=0.1972 | Bname=main[0m
+[2024-06-24 18:37:14,524][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:37:14,524][demucs.solver][INFO] - Training...
+[2024-06-24 18:37:14,524][demucs.solver][INFO] - Start of epoch 4
+[2024-06-24 18:37:14,524][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 18:39:43,730][demucs.solver][INFO] - Train | Epoch 4 | 111/447 | 0.75 it/sec | Loss 0.1355 | Reco 0.1355 | Grad 0.1628
+[2024-06-24 18:42:03,124][demucs.solver][INFO] - Train | Epoch 4 | 222/447 | 0.77 it/sec | Loss 0.1370 | Reco 0.1370 | Grad 0.1512
+[2024-06-24 18:44:24,601][demucs.solver][INFO] - Train | Epoch 4 | 333/447 | 0.78 it/sec | Loss 0.1363 | Reco 0.1363 | Grad 0.1455
+[2024-06-24 18:46:41,517][demucs.solver][INFO] - Train | Epoch 4 | 444/447 | 0.78 it/sec | Loss 0.1341 | Reco 0.1341 | Grad 0.1438
+[2024-06-24 18:46:43,925][demucs.solver][INFO] - [1mTrain Summary | Epoch 4 | Loss=0.1341 | Reco=0.1341 | Grad=0.1437[0m
+[2024-06-24 18:46:43,925][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:46:43,925][demucs.solver][INFO] - Cross validation...
+[2024-06-24 18:46:43,927][demucs.solver][INFO] - Start of epoch 4
+[2024-06-24 18:46:43,927][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 18:46:51,158][demucs.solver][INFO] - Valid | Epoch 4 | 3/14 | 0.55 it/sec | Loss 0.1993 | Reco 0.1993 | Nsdr 4.367
+[2024-06-24 18:46:58,938][demucs.solver][INFO] - Valid | Epoch 4 | 6/14 | 0.47 it/sec | Loss 0.1850 | Reco 0.1850 | Nsdr 4.782
+[2024-06-24 18:47:07,165][demucs.solver][INFO] - Valid | Epoch 4 | 9/14 | 0.43 it/sec | Loss 0.2032 | Reco 0.2032 | Nsdr 4.253
+[2024-06-24 18:47:13,730][demucs.solver][INFO] - Valid | Epoch 4 | 12/14 | 0.44 it/sec | Loss 0.1942 | Reco 0.1942 | Nsdr 4.034
+[2024-06-24 18:47:15,848][demucs.solver][INFO] - [1mValid Summary | Epoch 4 | Loss=0.1872 | Reco=0.1872 | Nsdr=4.121 | Best=0.1872 | Bname=main[0m
+[2024-06-24 18:47:15,849][demucs.solver][INFO] - [1mNew best valid loss 0.1872[0m
+[2024-06-24 18:47:23,811][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:47:23,811][demucs.solver][INFO] - Training...
+[2024-06-24 18:47:23,811][demucs.solver][INFO] - Start of epoch 5
+[2024-06-24 18:47:23,811][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 18:49:53,069][demucs.solver][INFO] - Train | Epoch 5 | 111/447 | 0.75 it/sec | Loss 0.1377 | Reco 0.1377 | Grad 0.1478
+[2024-06-24 18:52:11,892][demucs.solver][INFO] - Train | Epoch 5 | 222/447 | 0.77 it/sec | Loss 0.1340 | Reco 0.1340 | Grad 0.1561
+[2024-06-24 18:54:34,004][demucs.solver][INFO] - Train | Epoch 5 | 333/447 | 0.78 it/sec | Loss 0.1336 | Reco 0.1336 | Grad 0.1650
+[2024-06-24 18:56:52,539][demucs.solver][INFO] - Train | Epoch 5 | 444/447 | 0.78 it/sec | Loss 0.1312 | Reco 0.1312 | Grad 0.1580
+[2024-06-24 18:56:54,881][demucs.solver][INFO] - [1mTrain Summary | Epoch 5 | Loss=0.1313 | Reco=0.1313 | Grad=0.1577[0m
+[2024-06-24 18:56:54,881][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:56:54,882][demucs.solver][INFO] - Cross validation...
+[2024-06-24 18:56:54,882][demucs.solver][INFO] - Start of epoch 5
+[2024-06-24 18:56:54,882][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 18:57:02,242][demucs.solver][INFO] - Valid | Epoch 5 | 3/14 | 0.54 it/sec | Loss 0.1940 | Reco 0.1940 | Nsdr 4.193
+[2024-06-24 18:57:10,145][demucs.solver][INFO] - Valid | Epoch 5 | 6/14 | 0.46 it/sec | Loss 0.1846 | Reco 0.1846 | Nsdr 4.504
+[2024-06-24 18:57:18,429][demucs.solver][INFO] - Valid | Epoch 5 | 9/14 | 0.42 it/sec | Loss 0.2087 | Reco 0.2087 | Nsdr 3.867
+[2024-06-24 18:57:25,133][demucs.solver][INFO] - Valid | Epoch 5 | 12/14 | 0.43 it/sec | Loss 0.1956 | Reco 0.1956 | Nsdr 3.710
+[2024-06-24 18:57:27,285][demucs.solver][INFO] - [1mValid Summary | Epoch 5 | Loss=0.1886 | Reco=0.1886 | Nsdr=3.782 | Best=0.1872 | Bname=main[0m
+[2024-06-24 18:57:34,012][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 18:57:34,012][demucs.solver][INFO] - Training...
+[2024-06-24 18:57:34,013][demucs.solver][INFO] - Start of epoch 6
+[2024-06-24 18:57:34,013][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 19:00:03,273][demucs.solver][INFO] - Train | Epoch 6 | 111/447 | 0.75 it/sec | Loss 0.1227 | Reco 0.1227 | Grad 0.1494
+[2024-06-24 19:02:25,289][demucs.solver][INFO] - Train | Epoch 6 | 222/447 | 0.77 it/sec | Loss 0.1227 | Reco 0.1227 | Grad 0.1421
+[2024-06-24 19:04:44,195][demucs.solver][INFO] - Train | Epoch 6 | 333/447 | 0.78 it/sec | Loss 0.1219 | Reco 0.1219 | Grad 0.1471
+[2024-06-24 19:07:03,411][demucs.solver][INFO] - Train | Epoch 6 | 444/447 | 0.78 it/sec | Loss 0.1220 | Reco 0.1220 | Grad 0.1426
+[2024-06-24 19:07:06,222][demucs.solver][INFO] - [1mTrain Summary | Epoch 6 | Loss=0.1217 | Reco=0.1217 | Grad=0.1427[0m
+[2024-06-24 19:07:06,222][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:07:06,222][demucs.solver][INFO] - Cross validation...
+[2024-06-24 19:07:06,223][demucs.solver][INFO] - Start of epoch 6
+[2024-06-24 19:07:06,223][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 19:07:13,518][demucs.solver][INFO] - Valid | Epoch 6 | 3/14 | 0.55 it/sec | Loss 0.1824 | Reco 0.1824 | Nsdr 4.957
+[2024-06-24 19:07:21,295][demucs.solver][INFO] - Valid | Epoch 6 | 6/14 | 0.46 it/sec | Loss 0.1763 | Reco 0.1763 | Nsdr 5.035
+[2024-06-24 19:07:29,508][demucs.solver][INFO] - Valid | Epoch 6 | 9/14 | 0.43 it/sec | Loss 0.2006 | Reco 0.2006 | Nsdr 4.324
+[2024-06-24 19:07:36,164][demucs.solver][INFO] - Valid | Epoch 6 | 12/14 | 0.43 it/sec | Loss 0.1901 | Reco 0.1901 | Nsdr 4.014
+[2024-06-24 19:07:38,275][demucs.solver][INFO] - [1mValid Summary | Epoch 6 | Loss=0.1831 | Reco=0.1831 | Nsdr=4.106 | Best=0.1831 | Bname=main[0m
+[2024-06-24 19:07:38,275][demucs.solver][INFO] - [1mNew best valid loss 0.1831[0m
+[2024-06-24 19:07:46,658][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:07:46,659][demucs.solver][INFO] - Training...
+[2024-06-24 19:07:46,659][demucs.solver][INFO] - Start of epoch 7
+[2024-06-24 19:07:46,659][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 19:10:09,997][demucs.solver][INFO] - Train | Epoch 7 | 111/447 | 0.78 it/sec | Loss 0.1221 | Reco 0.1221 | Grad 0.1428
+[2024-06-24 19:12:31,898][demucs.solver][INFO] - Train | Epoch 7 | 222/447 | 0.78 it/sec | Loss 0.1237 | Reco 0.1237 | Grad 0.1392
+[2024-06-24 19:14:50,193][demucs.solver][INFO] - Train | Epoch 7 | 333/447 | 0.79 it/sec | Loss 0.1241 | Reco 0.1241 | Grad 0.1508
+[2024-06-24 19:17:05,607][demucs.solver][INFO] - Train | Epoch 7 | 444/447 | 0.80 it/sec | Loss 0.1235 | Reco 0.1235 | Grad 0.1477
+[2024-06-24 19:17:08,431][demucs.solver][INFO] - [1mTrain Summary | Epoch 7 | Loss=0.1233 | Reco=0.1233 | Grad=0.1474[0m
+[2024-06-24 19:17:08,431][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:17:08,431][demucs.solver][INFO] - Cross validation...
+[2024-06-24 19:17:08,432][demucs.solver][INFO] - Start of epoch 7
+[2024-06-24 19:17:08,432][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 19:17:15,674][demucs.solver][INFO] - Valid | Epoch 7 | 3/14 | 0.55 it/sec | Loss 0.1831 | Reco 0.1831 | Nsdr 5.371
+[2024-06-24 19:17:23,556][demucs.solver][INFO] - Valid | Epoch 7 | 6/14 | 0.46 it/sec | Loss 0.1764 | Reco 0.1764 | Nsdr 5.408
+[2024-06-24 19:17:31,738][demucs.solver][INFO] - Valid | Epoch 7 | 9/14 | 0.43 it/sec | Loss 0.1941 | Reco 0.1941 | Nsdr 4.809
+[2024-06-24 19:17:38,332][demucs.solver][INFO] - Valid | Epoch 7 | 12/14 | 0.43 it/sec | Loss 0.1841 | Reco 0.1841 | Nsdr 4.494
+[2024-06-24 19:17:40,477][demucs.solver][INFO] - [1mValid Summary | Epoch 7 | Loss=0.1775 | Reco=0.1775 | Nsdr=4.587 | Best=0.1775 | Bname=main[0m
+[2024-06-24 19:17:40,478][demucs.solver][INFO] - [1mNew best valid loss 0.1775[0m
+[2024-06-24 19:17:48,676][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:17:48,677][demucs.solver][INFO] - Training...
+[2024-06-24 19:17:48,677][demucs.solver][INFO] - Start of epoch 8
+[2024-06-24 19:17:48,677][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 19:20:15,755][demucs.solver][INFO] - Train | Epoch 8 | 111/447 | 0.76 it/sec | Loss 0.1165 | Reco 0.1165 | Grad 0.1446
+[2024-06-24 19:22:34,905][demucs.solver][INFO] - Train | Epoch 8 | 222/447 | 0.78 it/sec | Loss 0.1182 | Reco 0.1182 | Grad 0.1387
+[2024-06-24 19:24:57,384][demucs.solver][INFO] - Train | Epoch 8 | 333/447 | 0.78 it/sec | Loss 0.1189 | Reco 0.1189 | Grad 0.1427
+[2024-06-24 19:27:17,396][demucs.solver][INFO] - Train | Epoch 8 | 444/447 | 0.78 it/sec | Loss 0.1197 | Reco 0.1197 | Grad 0.1451
+[2024-06-24 19:27:19,981][demucs.solver][INFO] - [1mTrain Summary | Epoch 8 | Loss=0.1197 | Reco=0.1197 | Grad=0.1449[0m
+[2024-06-24 19:27:19,981][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:27:19,981][demucs.solver][INFO] - Cross validation...
+[2024-06-24 19:27:19,982][demucs.solver][INFO] - Start of epoch 8
+[2024-06-24 19:27:19,982][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 19:27:27,219][demucs.solver][INFO] - Valid | Epoch 8 | 3/14 | 0.55 it/sec | Loss 0.1787 | Reco 0.1787 | Nsdr 5.367
+[2024-06-24 19:27:35,088][demucs.solver][INFO] - Valid | Epoch 8 | 6/14 | 0.46 it/sec | Loss 0.1755 | Reco 0.1755 | Nsdr 5.195
+[2024-06-24 19:27:43,337][demucs.solver][INFO] - Valid | Epoch 8 | 9/14 | 0.43 it/sec | Loss 0.2030 | Reco 0.2030 | Nsdr 4.316
+[2024-06-24 19:27:50,020][demucs.solver][INFO] - Valid | Epoch 8 | 12/14 | 0.43 it/sec | Loss 0.1913 | Reco 0.1913 | Nsdr 4.055
+[2024-06-24 19:27:52,200][demucs.solver][INFO] - [1mValid Summary | Epoch 8 | Loss=0.1842 | Reco=0.1842 | Nsdr=4.156 | Best=0.1775 | Bname=main[0m
+[2024-06-24 19:27:58,983][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:27:58,984][demucs.solver][INFO] - Training...
+[2024-06-24 19:27:58,984][demucs.solver][INFO] - Start of epoch 9
+[2024-06-24 19:27:58,984][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 19:30:31,090][demucs.solver][INFO] - Train | Epoch 9 | 111/447 | 0.74 it/sec | Loss 0.1194 | Reco 0.1194 | Grad 0.1434
+[2024-06-24 19:32:50,728][demucs.solver][INFO] - Train | Epoch 9 | 222/447 | 0.76 it/sec | Loss 0.1188 | Reco 0.1188 | Grad 0.1458
+[2024-06-24 19:35:11,216][demucs.solver][INFO] - Train | Epoch 9 | 333/447 | 0.77 it/sec | Loss 0.1203 | Reco 0.1203 | Grad 0.1403
+[2024-06-24 19:37:28,646][demucs.solver][INFO] - Train | Epoch 9 | 444/447 | 0.78 it/sec | Loss 0.1209 | Reco 0.1209 | Grad 0.1386
+[2024-06-24 19:37:31,868][demucs.solver][INFO] - [1mTrain Summary | Epoch 9 | Loss=0.1211 | Reco=0.1211 | Grad=0.1385[0m
+[2024-06-24 19:37:31,868][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:37:31,868][demucs.solver][INFO] - Cross validation...
+[2024-06-24 19:37:31,869][demucs.solver][INFO] - Start of epoch 9
+[2024-06-24 19:37:31,869][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 19:37:39,161][demucs.solver][INFO] - Valid | Epoch 9 | 3/14 | 0.55 it/sec | Loss 0.1750 | Reco 0.1750 | Nsdr 5.650
+[2024-06-24 19:37:46,996][demucs.solver][INFO] - Valid | Epoch 9 | 6/14 | 0.46 it/sec | Loss 0.1730 | Reco 0.1730 | Nsdr 5.453
+[2024-06-24 19:37:55,152][demucs.solver][INFO] - Valid | Epoch 9 | 9/14 | 0.43 it/sec | Loss 0.1975 | Reco 0.1975 | Nsdr 4.644
+[2024-06-24 19:38:01,943][demucs.solver][INFO] - Valid | Epoch 9 | 12/14 | 0.43 it/sec | Loss 0.1859 | Reco 0.1859 | Nsdr 4.375
+[2024-06-24 19:38:04,094][demucs.solver][INFO] - [1mValid Summary | Epoch 9 | Loss=0.1790 | Reco=0.1790 | Nsdr=4.500 | Best=0.1775 | Bname=main[0m
+[2024-06-24 19:38:10,803][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:38:10,804][demucs.solver][INFO] - Training...
+[2024-06-24 19:38:10,804][demucs.solver][INFO] - Start of epoch 10
+[2024-06-24 19:38:10,804][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 19:40:35,323][demucs.solver][INFO] - Train | Epoch 10 | 111/447 | 0.77 it/sec | Loss 0.1164 | Reco 0.1164 | Grad 0.1581
+[2024-06-24 19:42:54,700][demucs.solver][INFO] - Train | Epoch 10 | 222/447 | 0.79 it/sec | Loss 0.1193 | Reco 0.1193 | Grad 0.1455
+[2024-06-24 19:45:11,160][demucs.solver][INFO] - Train | Epoch 10 | 333/447 | 0.79 it/sec | Loss 0.1190 | Reco 0.1190 | Grad 0.1448
+[2024-06-24 19:47:26,675][demucs.solver][INFO] - Train | Epoch 10 | 444/447 | 0.80 it/sec | Loss 0.1174 | Reco 0.1174 | Grad 0.1433
+[2024-06-24 19:47:29,288][demucs.solver][INFO] - [1mTrain Summary | Epoch 10 | Loss=0.1172 | Reco=0.1172 | Grad=0.1434[0m
+[2024-06-24 19:47:29,289][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:47:29,290][demucs.solver][INFO] - Cross validation...
+[2024-06-24 19:47:29,290][demucs.solver][INFO] - Start of epoch 10
+[2024-06-24 19:47:29,290][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 19:47:36,569][demucs.solver][INFO] - Valid | Epoch 10 | 3/14 | 0.55 it/sec | Loss 0.1860 | Reco 0.1860 | Nsdr 5.134
+[2024-06-24 19:47:44,344][demucs.solver][INFO] - Valid | Epoch 10 | 6/14 | 0.47 it/sec | Loss 0.1771 | Reco 0.1771 | Nsdr 5.256
+[2024-06-24 19:47:52,518][demucs.solver][INFO] - Valid | Epoch 10 | 9/14 | 0.43 it/sec | Loss 0.1950 | Reco 0.1950 | Nsdr 4.678
+[2024-06-24 19:47:59,158][demucs.solver][INFO] - Valid | Epoch 10 | 12/14 | 0.44 it/sec | Loss 0.1831 | Reco 0.1831 | Nsdr 4.433
+[2024-06-24 19:48:01,309][demucs.solver][INFO] - [1mValid Summary | Epoch 10 | Loss=0.1763 | Reco=0.1763 | Nsdr=4.562 | Best=0.1763 | Bname=main[0m
+[2024-06-24 19:48:01,309][demucs.solver][INFO] - [1mNew best valid loss 0.1763[0m
+[2024-06-24 19:48:01,347][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 19:48:01,347][demucs.solver][INFO] - Evaluating on the test set...
+[2024-06-24 19:53:44,516][demucs.evaluate][INFO] - Eval | 12/50 | 26.2 sec/it
+[2024-06-24 19:59:40,893][demucs.evaluate][INFO] - Eval | 24/50 | 27.9 sec/it
+[2024-06-24 20:05:13,223][demucs.evaluate][INFO] - Eval | 36/50 | 27.8 sec/it
+[2024-06-24 20:11:06,238][demucs.evaluate][INFO] - Eval | 48/50 | 28.2 sec/it
+[2024-06-24 20:11:31,939][demucs.solver][INFO] - [1mTest Summary | Epoch 10 | Nsdr=0.614 | Nsdr_drums=4.937 | Nsdr_bass=-1.377 | Nsdr_other=-0.708 | Nsdr_vocals=-0.395[0m
+[2024-06-24 20:11:40,185][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:11:40,185][demucs.solver][INFO] - Training...
+[2024-06-24 20:11:40,185][demucs.solver][INFO] - Start of epoch 11
+[2024-06-24 20:11:40,185][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 20:14:11,863][demucs.solver][INFO] - Train | Epoch 11 | 111/447 | 0.74 it/sec | Loss 0.1056 | Reco 0.1056 | Grad 0.1213
+[2024-06-24 20:16:32,046][demucs.solver][INFO] - Train | Epoch 11 | 222/447 | 0.76 it/sec | Loss 0.1096 | Reco 0.1096 | Grad 0.1304
+[2024-06-24 20:18:46,143][demucs.solver][INFO] - Train | Epoch 11 | 333/447 | 0.78 it/sec | Loss 0.1143 | Reco 0.1143 | Grad 0.1341
+[2024-06-24 20:21:03,870][demucs.solver][INFO] - Train | Epoch 11 | 444/447 | 0.79 it/sec | Loss 0.1151 | Reco 0.1151 | Grad 0.1307
+[2024-06-24 20:21:06,200][demucs.solver][INFO] - [1mTrain Summary | Epoch 11 | Loss=0.1151 | Reco=0.1151 | Grad=0.1305[0m
+[2024-06-24 20:21:06,201][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:21:06,201][demucs.solver][INFO] - Cross validation...
+[2024-06-24 20:21:06,201][demucs.solver][INFO] - Start of epoch 11
+[2024-06-24 20:21:06,201][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 20:21:13,433][demucs.solver][INFO] - Valid | Epoch 11 | 3/14 | 0.55 it/sec | Loss 0.1835 | Reco 0.1835 | Nsdr 5.523
+[2024-06-24 20:21:21,311][demucs.solver][INFO] - Valid | Epoch 11 | 6/14 | 0.46 it/sec | Loss 0.1761 | Reco 0.1761 | Nsdr 5.541
+[2024-06-24 20:21:29,497][demucs.solver][INFO] - Valid | Epoch 11 | 9/14 | 0.43 it/sec | Loss 0.1954 | Reco 0.1954 | Nsdr 4.870
+[2024-06-24 20:21:36,188][demucs.solver][INFO] - Valid | Epoch 11 | 12/14 | 0.43 it/sec | Loss 0.1830 | Reco 0.1830 | Nsdr 4.658
+[2024-06-24 20:21:38,337][demucs.solver][INFO] - [1mValid Summary | Epoch 11 | Loss=0.1764 | Reco=0.1764 | Nsdr=4.784 | Best=0.1763 | Bname=main[0m
+[2024-06-24 20:21:45,193][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:21:45,193][demucs.solver][INFO] - Training...
+[2024-06-24 20:21:45,193][demucs.solver][INFO] - Start of epoch 12
+[2024-06-24 20:21:45,194][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 20:24:15,143][demucs.solver][INFO] - Train | Epoch 12 | 111/447 | 0.75 it/sec | Loss 0.1118 | Reco 0.1118 | Grad 0.1350
+[2024-06-24 20:26:32,644][demucs.solver][INFO] - Train | Epoch 12 | 222/447 | 0.78 it/sec | Loss 0.1123 | Reco 0.1123 | Grad 0.1436
+[2024-06-24 20:28:54,464][demucs.solver][INFO] - Train | Epoch 12 | 333/447 | 0.78 it/sec | Loss 0.1126 | Reco 0.1126 | Grad 0.1361
+[2024-06-24 20:31:13,043][demucs.solver][INFO] - Train | Epoch 12 | 444/447 | 0.78 it/sec | Loss 0.1124 | Reco 0.1124 | Grad 0.1367
+[2024-06-24 20:31:15,760][demucs.solver][INFO] - [1mTrain Summary | Epoch 12 | Loss=0.1124 | Reco=0.1124 | Grad=0.1369[0m
+[2024-06-24 20:31:15,760][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:31:15,760][demucs.solver][INFO] - Cross validation...
+[2024-06-24 20:31:15,761][demucs.solver][INFO] - Start of epoch 12
+[2024-06-24 20:31:15,761][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 20:31:23,124][demucs.solver][INFO] - Valid | Epoch 12 | 3/14 | 0.54 it/sec | Loss 0.1847 | Reco 0.1847 | Nsdr 5.201
+[2024-06-24 20:31:31,095][demucs.solver][INFO] - Valid | Epoch 12 | 6/14 | 0.46 it/sec | Loss 0.1747 | Reco 0.1747 | Nsdr 5.385
+[2024-06-24 20:31:39,406][demucs.solver][INFO] - Valid | Epoch 12 | 9/14 | 0.42 it/sec | Loss 0.1888 | Reco 0.1888 | Nsdr 4.941
+[2024-06-24 20:31:46,050][demucs.solver][INFO] - Valid | Epoch 12 | 12/14 | 0.43 it/sec | Loss 0.1778 | Reco 0.1778 | Nsdr 4.703
+[2024-06-24 20:31:48,202][demucs.solver][INFO] - [1mValid Summary | Epoch 12 | Loss=0.1716 | Reco=0.1716 | Nsdr=4.819 | Best=0.1716 | Bname=main[0m
+[2024-06-24 20:31:48,203][demucs.solver][INFO] - [1mNew best valid loss 0.1716[0m
+[2024-06-24 20:31:56,389][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:31:56,389][demucs.solver][INFO] - Training...
+[2024-06-24 20:31:56,389][demucs.solver][INFO] - Start of epoch 13
+[2024-06-24 20:31:56,389][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 20:34:26,326][demucs.solver][INFO] - Train | Epoch 13 | 111/447 | 0.75 it/sec | Loss 0.1152 | Reco 0.1152 | Grad 0.1532
+[2024-06-24 20:36:47,112][demucs.solver][INFO] - Train | Epoch 13 | 222/447 | 0.77 it/sec | Loss 0.1127 | Reco 0.1127 | Grad 0.1389
+[2024-06-24 20:39:06,023][demucs.solver][INFO] - Train | Epoch 13 | 333/447 | 0.78 it/sec | Loss 0.1121 | Reco 0.1121 | Grad 0.1341
+[2024-06-24 20:41:23,750][demucs.solver][INFO] - Train | Epoch 13 | 444/447 | 0.78 it/sec | Loss 0.1101 | Reco 0.1101 | Grad 0.1301
+[2024-06-24 20:41:26,580][demucs.solver][INFO] - [1mTrain Summary | Epoch 13 | Loss=0.1101 | Reco=0.1101 | Grad=0.1304[0m
+[2024-06-24 20:41:26,580][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:41:26,581][demucs.solver][INFO] - Cross validation...
+[2024-06-24 20:41:26,581][demucs.solver][INFO] - Start of epoch 13
+[2024-06-24 20:41:26,581][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 20:41:34,080][demucs.solver][INFO] - Valid | Epoch 13 | 3/14 | 0.53 it/sec | Loss 0.1722 | Reco 0.1722 | Nsdr 5.887
+[2024-06-24 20:41:42,013][demucs.solver][INFO] - Valid | Epoch 13 | 6/14 | 0.45 it/sec | Loss 0.1654 | Reco 0.1654 | Nsdr 5.898
+[2024-06-24 20:41:50,344][demucs.solver][INFO] - Valid | Epoch 13 | 9/14 | 0.42 it/sec | Loss 0.1861 | Reco 0.1861 | Nsdr 5.163
+[2024-06-24 20:41:57,083][demucs.solver][INFO] - Valid | Epoch 13 | 12/14 | 0.43 it/sec | Loss 0.1758 | Reco 0.1758 | Nsdr 4.842
+[2024-06-24 20:41:59,229][demucs.solver][INFO] - [1mValid Summary | Epoch 13 | Loss=0.1695 | Reco=0.1695 | Nsdr=4.970 | Best=0.1695 | Bname=main[0m
+[2024-06-24 20:41:59,229][demucs.solver][INFO] - [1mNew best valid loss 0.1695[0m
+[2024-06-24 20:42:07,469][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:42:07,469][demucs.solver][INFO] - Training...
+[2024-06-24 20:42:07,469][demucs.solver][INFO] - Start of epoch 14
+[2024-06-24 20:42:07,470][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 20:44:39,594][demucs.solver][INFO] - Train | Epoch 14 | 111/447 | 0.74 it/sec | Loss 0.1039 | Reco 0.1039 | Grad 0.1392
+[2024-06-24 20:47:00,819][demucs.solver][INFO] - Train | Epoch 14 | 222/447 | 0.76 it/sec | Loss 0.1067 | Reco 0.1067 | Grad 0.1441
+[2024-06-24 20:49:21,467][demucs.solver][INFO] - Train | Epoch 14 | 333/447 | 0.77 it/sec | Loss 0.1080 | Reco 0.1080 | Grad 0.1355
+[2024-06-24 20:51:42,320][demucs.solver][INFO] - Train | Epoch 14 | 444/447 | 0.77 it/sec | Loss 0.1103 | Reco 0.1103 | Grad 0.1350
+[2024-06-24 20:51:45,100][demucs.solver][INFO] - [1mTrain Summary | Epoch 14 | Loss=0.1103 | Reco=0.1103 | Grad=0.1351[0m
+[2024-06-24 20:51:45,101][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:51:45,101][demucs.solver][INFO] - Cross validation...
+[2024-06-24 20:51:45,102][demucs.solver][INFO] - Start of epoch 14
+[2024-06-24 20:51:45,102][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 20:51:52,466][demucs.solver][INFO] - Valid | Epoch 14 | 3/14 | 0.54 it/sec | Loss 0.1777 | Reco 0.1777 | Nsdr 5.659
+[2024-06-24 20:52:00,465][demucs.solver][INFO] - Valid | Epoch 14 | 6/14 | 0.46 it/sec | Loss 0.1703 | Reco 0.1703 | Nsdr 5.736
+[2024-06-24 20:52:08,939][demucs.solver][INFO] - Valid | Epoch 14 | 9/14 | 0.42 it/sec | Loss 0.1901 | Reco 0.1901 | Nsdr 5.015
+[2024-06-24 20:52:15,693][demucs.solver][INFO] - Valid | Epoch 14 | 12/14 | 0.42 it/sec | Loss 0.1785 | Reco 0.1785 | Nsdr 4.710
+[2024-06-24 20:52:17,891][demucs.solver][INFO] - [1mValid Summary | Epoch 14 | Loss=0.1721 | Reco=0.1721 | Nsdr=4.839 | Best=0.1695 | Bname=main[0m
+[2024-06-24 20:52:24,603][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 20:52:24,604][demucs.solver][INFO] - Training...
+[2024-06-24 20:52:24,604][demucs.solver][INFO] - Start of epoch 15
+[2024-06-24 20:52:24,604][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 20:54:53,717][demucs.solver][INFO] - Train | Epoch 15 | 111/447 | 0.75 it/sec | Loss 0.1085 | Reco 0.1085 | Grad 0.1173
+[2024-06-24 20:57:12,912][demucs.solver][INFO] - Train | Epoch 15 | 222/447 | 0.77 it/sec | Loss 0.1089 | Reco 0.1089 | Grad 0.1355
+[2024-06-24 20:59:31,009][demucs.solver][INFO] - Train | Epoch 15 | 333/447 | 0.78 it/sec | Loss 0.1092 | Reco 0.1092 | Grad 0.1351
+[2024-06-24 21:01:50,478][demucs.solver][INFO] - Train | Epoch 15 | 444/447 | 0.79 it/sec | Loss 0.1095 | Reco 0.1095 | Grad 0.1365
+[2024-06-24 21:01:53,062][demucs.solver][INFO] - [1mTrain Summary | Epoch 15 | Loss=0.1094 | Reco=0.1094 | Grad=0.1366[0m
+[2024-06-24 21:01:53,062][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:01:53,062][demucs.solver][INFO] - Cross validation...
+[2024-06-24 21:01:53,063][demucs.solver][INFO] - Start of epoch 15
+[2024-06-24 21:01:53,063][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 21:02:00,364][demucs.solver][INFO] - Valid | Epoch 15 | 3/14 | 0.55 it/sec | Loss 0.1732 | Reco 0.1732 | Nsdr 5.925
+[2024-06-24 21:02:08,243][demucs.solver][INFO] - Valid | Epoch 15 | 6/14 | 0.46 it/sec | Loss 0.1658 | Reco 0.1658 | Nsdr 5.988
+[2024-06-24 21:02:16,532][demucs.solver][INFO] - Valid | Epoch 15 | 9/14 | 0.43 it/sec | Loss 0.1850 | Reco 0.1850 | Nsdr 5.283
+[2024-06-24 21:02:23,195][demucs.solver][INFO] - Valid | Epoch 15 | 12/14 | 0.43 it/sec | Loss 0.1735 | Reco 0.1735 | Nsdr 5.051
+[2024-06-24 21:02:25,303][demucs.solver][INFO] - [1mValid Summary | Epoch 15 | Loss=0.1676 | Reco=0.1676 | Nsdr=5.156 | Best=0.1676 | Bname=main[0m
+[2024-06-24 21:02:25,303][demucs.solver][INFO] - [1mNew best valid loss 0.1676[0m
+[2024-06-24 21:02:33,468][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:02:33,469][demucs.solver][INFO] - Training...
+[2024-06-24 21:02:33,469][demucs.solver][INFO] - Start of epoch 16
+[2024-06-24 21:02:33,469][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 21:05:02,278][demucs.solver][INFO] - Train | Epoch 16 | 111/447 | 0.75 it/sec | Loss 0.1063 | Reco 0.1063 | Grad 0.1334
+[2024-06-24 21:07:18,518][demucs.solver][INFO] - Train | Epoch 16 | 222/447 | 0.78 it/sec | Loss 0.1090 | Reco 0.1090 | Grad 0.1362
+[2024-06-24 21:09:37,660][demucs.solver][INFO] - Train | Epoch 16 | 333/447 | 0.79 it/sec | Loss 0.1105 | Reco 0.1105 | Grad 0.1378
+[2024-06-24 21:11:55,660][demucs.solver][INFO] - Train | Epoch 16 | 444/447 | 0.79 it/sec | Loss 0.1091 | Reco 0.1091 | Grad 0.1396
+[2024-06-24 21:11:58,557][demucs.solver][INFO] - [1mTrain Summary | Epoch 16 | Loss=0.1090 | Reco=0.1090 | Grad=0.1394[0m
+[2024-06-24 21:11:58,558][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:11:58,558][demucs.solver][INFO] - Cross validation...
+[2024-06-24 21:11:58,558][demucs.solver][INFO] - Start of epoch 16
+[2024-06-24 21:11:58,559][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 21:12:06,007][demucs.solver][INFO] - Valid | Epoch 16 | 3/14 | 0.54 it/sec | Loss 0.1724 | Reco 0.1724 | Nsdr 5.939
+[2024-06-24 21:12:14,008][demucs.solver][INFO] - Valid | Epoch 16 | 6/14 | 0.45 it/sec | Loss 0.1644 | Reco 0.1644 | Nsdr 6.022
+[2024-06-24 21:12:22,435][demucs.solver][INFO] - Valid | Epoch 16 | 9/14 | 0.42 it/sec | Loss 0.1821 | Reco 0.1821 | Nsdr 5.357
+[2024-06-24 21:12:29,293][demucs.solver][INFO] - Valid | Epoch 16 | 12/14 | 0.42 it/sec | Loss 0.1734 | Reco 0.1734 | Nsdr 5.004
+[2024-06-24 21:12:31,466][demucs.solver][INFO] - [1mValid Summary | Epoch 16 | Loss=0.1676 | Reco=0.1676 | Nsdr=5.116 | Best=0.1676 | Bname=main[0m
+[2024-06-24 21:12:31,466][demucs.solver][INFO] - [1mNew best valid loss 0.1676[0m
+[2024-06-24 21:12:39,733][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:12:39,734][demucs.solver][INFO] - Training...
+[2024-06-24 21:12:39,734][demucs.solver][INFO] - Start of epoch 17
+[2024-06-24 21:12:39,734][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 21:15:06,628][demucs.solver][INFO] - Train | Epoch 17 | 111/447 | 0.76 it/sec | Loss 0.1013 | Reco 0.1013 | Grad 0.1271
+[2024-06-24 21:17:27,587][demucs.solver][INFO] - Train | Epoch 17 | 222/447 | 0.77 it/sec | Loss 0.1066 | Reco 0.1066 | Grad 0.1424
+[2024-06-24 21:19:46,391][demucs.solver][INFO] - Train | Epoch 17 | 333/447 | 0.78 it/sec | Loss 0.1067 | Reco 0.1067 | Grad 0.1369
+[2024-06-24 21:22:09,006][demucs.solver][INFO] - Train | Epoch 17 | 444/447 | 0.78 it/sec | Loss 0.1061 | Reco 0.1061 | Grad 0.1361
+[2024-06-24 21:22:11,596][demucs.solver][INFO] - [1mTrain Summary | Epoch 17 | Loss=0.1063 | Reco=0.1063 | Grad=0.1359[0m
+[2024-06-24 21:22:11,596][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:22:11,596][demucs.solver][INFO] - Cross validation...
+[2024-06-24 21:22:11,597][demucs.solver][INFO] - Start of epoch 17
+[2024-06-24 21:22:11,597][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 21:22:19,073][demucs.solver][INFO] - Valid | Epoch 17 | 3/14 | 0.54 it/sec | Loss 0.1621 | Reco 0.1621 | Nsdr 6.386
+[2024-06-24 21:22:26,970][demucs.solver][INFO] - Valid | Epoch 17 | 6/14 | 0.46 it/sec | Loss 0.1581 | Reco 0.1581 | Nsdr 6.312
+[2024-06-24 21:22:35,252][demucs.solver][INFO] - Valid | Epoch 17 | 9/14 | 0.42 it/sec | Loss 0.1767 | Reco 0.1767 | Nsdr 5.611
+[2024-06-24 21:22:42,127][demucs.solver][INFO] - Valid | Epoch 17 | 12/14 | 0.43 it/sec | Loss 0.1671 | Reco 0.1671 | Nsdr 5.252
+[2024-06-24 21:22:44,307][demucs.solver][INFO] - [1mValid Summary | Epoch 17 | Loss=0.1618 | Reco=0.1618 | Nsdr=5.350 | Best=0.1618 | Bname=main[0m
+[2024-06-24 21:22:44,308][demucs.solver][INFO] - [1mNew best valid loss 0.1618[0m
+[2024-06-24 21:22:52,725][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:22:52,726][demucs.solver][INFO] - Training...
+[2024-06-24 21:22:52,726][demucs.solver][INFO] - Start of epoch 18
+[2024-06-24 21:22:52,726][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 21:25:19,857][demucs.solver][INFO] - Train | Epoch 18 | 111/447 | 0.76 it/sec | Loss 0.1040 | Reco 0.1040 | Grad 0.1398
+[2024-06-24 21:27:39,109][demucs.solver][INFO] - Train | Epoch 18 | 222/447 | 0.78 it/sec | Loss 0.1046 | Reco 0.1046 | Grad 0.1354
+[2024-06-24 21:29:59,840][demucs.solver][INFO] - Train | Epoch 18 | 333/447 | 0.78 it/sec | Loss 0.1044 | Reco 0.1044 | Grad 0.1315
+[2024-06-24 21:32:18,181][demucs.solver][INFO] - Train | Epoch 18 | 444/447 | 0.79 it/sec | Loss 0.1043 | Reco 0.1043 | Grad 0.1359
+[2024-06-24 21:32:20,623][demucs.solver][INFO] - [1mTrain Summary | Epoch 18 | Loss=0.1043 | Reco=0.1043 | Grad=0.1356[0m
+[2024-06-24 21:32:20,624][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:32:20,624][demucs.solver][INFO] - Cross validation...
+[2024-06-24 21:32:20,624][demucs.solver][INFO] - Start of epoch 18
+[2024-06-24 21:32:20,625][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 21:32:28,132][demucs.solver][INFO] - Valid | Epoch 18 | 3/14 | 0.53 it/sec | Loss 0.1716 | Reco 0.1716 | Nsdr 5.904
+[2024-06-24 21:32:36,146][demucs.solver][INFO] - Valid | Epoch 18 | 6/14 | 0.45 it/sec | Loss 0.1646 | Reco 0.1646 | Nsdr 5.970
+[2024-06-24 21:32:44,592][demucs.solver][INFO] - Valid | Epoch 18 | 9/14 | 0.42 it/sec | Loss 0.1831 | Reco 0.1831 | Nsdr 5.301
+[2024-06-24 21:32:51,354][demucs.solver][INFO] - Valid | Epoch 18 | 12/14 | 0.42 it/sec | Loss 0.1723 | Reco 0.1723 | Nsdr 4.960
+[2024-06-24 21:32:53,538][demucs.solver][INFO] - [1mValid Summary | Epoch 18 | Loss=0.1662 | Reco=0.1662 | Nsdr=5.071 | Best=0.1618 | Bname=main[0m
+[2024-06-24 21:32:59,945][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:32:59,945][demucs.solver][INFO] - Training...
+[2024-06-24 21:32:59,945][demucs.solver][INFO] - Start of epoch 19
+[2024-06-24 21:32:59,946][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 21:35:28,748][demucs.solver][INFO] - Train | Epoch 19 | 111/447 | 0.75 it/sec | Loss 0.1093 | Reco 0.1093 | Grad 0.1362
+[2024-06-24 21:37:44,607][demucs.solver][INFO] - Train | Epoch 19 | 222/447 | 0.78 it/sec | Loss 0.1076 | Reco 0.1076 | Grad 0.1485
+[2024-06-24 21:40:04,560][demucs.solver][INFO] - Train | Epoch 19 | 333/447 | 0.79 it/sec | Loss 0.1049 | Reco 0.1049 | Grad 0.1462
+[2024-06-24 21:42:27,579][demucs.solver][INFO] - Train | Epoch 19 | 444/447 | 0.78 it/sec | Loss 0.1039 | Reco 0.1039 | Grad 0.1462
+[2024-06-24 21:42:30,044][demucs.solver][INFO] - [1mTrain Summary | Epoch 19 | Loss=0.1039 | Reco=0.1039 | Grad=0.1461[0m
+[2024-06-24 21:42:30,044][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:42:30,045][demucs.solver][INFO] - Cross validation...
+[2024-06-24 21:42:30,045][demucs.solver][INFO] - Start of epoch 19
+[2024-06-24 21:42:30,045][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 21:42:37,501][demucs.solver][INFO] - Valid | Epoch 19 | 3/14 | 0.54 it/sec | Loss 0.1698 | Reco 0.1698 | Nsdr 5.994
+[2024-06-24 21:42:45,543][demucs.solver][INFO] - Valid | Epoch 19 | 6/14 | 0.45 it/sec | Loss 0.1640 | Reco 0.1640 | Nsdr 6.012
+[2024-06-24 21:42:54,000][demucs.solver][INFO] - Valid | Epoch 19 | 9/14 | 0.42 it/sec | Loss 0.1797 | Reco 0.1797 | Nsdr 5.416
+[2024-06-24 21:43:00,842][demucs.solver][INFO] - Valid | Epoch 19 | 12/14 | 0.42 it/sec | Loss 0.1700 | Reco 0.1700 | Nsdr 5.091
+[2024-06-24 21:43:03,016][demucs.solver][INFO] - [1mValid Summary | Epoch 19 | Loss=0.1638 | Reco=0.1638 | Nsdr=5.208 | Best=0.1618 | Bname=main[0m
+[2024-06-24 21:43:09,648][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:43:09,648][demucs.solver][INFO] - Training...
+[2024-06-24 21:43:09,648][demucs.solver][INFO] - Start of epoch 20
+[2024-06-24 21:43:09,648][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 21:45:43,652][demucs.solver][INFO] - Train | Epoch 20 | 111/447 | 0.73 it/sec | Loss 0.0979 | Reco 0.0979 | Grad 0.1284
+[2024-06-24 21:48:02,901][demucs.solver][INFO] - Train | Epoch 20 | 222/447 | 0.76 it/sec | Loss 0.0998 | Reco 0.0998 | Grad 0.1371
+[2024-06-24 21:50:21,256][demucs.solver][INFO] - Train | Epoch 20 | 333/447 | 0.77 it/sec | Loss 0.0998 | Reco 0.0998 | Grad 0.1303
+[2024-06-24 21:52:40,479][demucs.solver][INFO] - Train | Epoch 20 | 444/447 | 0.78 it/sec | Loss 0.1022 | Reco 0.1022 | Grad 0.1281
+[2024-06-24 21:52:43,383][demucs.solver][INFO] - [1mTrain Summary | Epoch 20 | Loss=0.1022 | Reco=0.1022 | Grad=0.1278[0m
+[2024-06-24 21:52:43,383][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:52:43,383][demucs.solver][INFO] - Cross validation...
+[2024-06-24 21:52:43,384][demucs.solver][INFO] - Start of epoch 20
+[2024-06-24 21:52:43,384][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 21:52:50,984][demucs.solver][INFO] - Valid | Epoch 20 | 3/14 | 0.53 it/sec | Loss 0.1660 | Reco 0.1660 | Nsdr 6.157
+[2024-06-24 21:52:59,084][demucs.solver][INFO] - Valid | Epoch 20 | 6/14 | 0.45 it/sec | Loss 0.1622 | Reco 0.1622 | Nsdr 6.077
+[2024-06-24 21:53:07,561][demucs.solver][INFO] - Valid | Epoch 20 | 9/14 | 0.41 it/sec | Loss 0.1834 | Reco 0.1834 | Nsdr 5.322
+[2024-06-24 21:53:14,288][demucs.solver][INFO] - Valid | Epoch 20 | 12/14 | 0.42 it/sec | Loss 0.1740 | Reco 0.1740 | Nsdr 4.965
+[2024-06-24 21:53:16,440][demucs.solver][INFO] - [1mValid Summary | Epoch 20 | Loss=0.1679 | Reco=0.1679 | Nsdr=5.085 | Best=0.1618 | Bname=main[0m
+[2024-06-24 21:53:16,441][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 21:53:16,441][demucs.solver][INFO] - Evaluating on the test set...
+[2024-06-24 21:59:29,697][demucs.evaluate][INFO] - Eval | 12/50 | 28.5 sec/it
+[2024-06-24 22:05:40,700][demucs.evaluate][INFO] - Eval | 24/50 | 29.7 sec/it
+[2024-06-24 22:11:21,448][demucs.evaluate][INFO] - Eval | 36/50 | 29.3 sec/it
+[2024-06-24 22:17:24,364][demucs.evaluate][INFO] - Eval | 48/50 | 29.5 sec/it
+[2024-06-24 22:17:50,418][demucs.solver][INFO] - [1mTest Summary | Epoch 20 | Nsdr=0.956 | Nsdr_drums=5.902 | Nsdr_bass=-1.262 | Nsdr_other=-0.464 | Nsdr_vocals=-0.352[0m
+[2024-06-24 22:17:56,874][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:17:56,874][demucs.solver][INFO] - Training...
+[2024-06-24 22:17:56,874][demucs.solver][INFO] - Start of epoch 21
+[2024-06-24 22:17:56,874][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 22:20:36,821][demucs.solver][INFO] - Train | Epoch 21 | 111/447 | 0.70 it/sec | Loss 0.1004 | Reco 0.1004 | Grad 0.1361
+[2024-06-24 22:22:54,022][demucs.solver][INFO] - Train | Epoch 21 | 222/447 | 0.75 it/sec | Loss 0.1013 | Reco 0.1013 | Grad 0.1275
+[2024-06-24 22:25:11,625][demucs.solver][INFO] - Train | Epoch 21 | 333/447 | 0.77 it/sec | Loss 0.1011 | Reco 0.1011 | Grad 0.1325
+[2024-06-24 22:27:33,872][demucs.solver][INFO] - Train | Epoch 21 | 444/447 | 0.77 it/sec | Loss 0.1016 | Reco 0.1016 | Grad 0.1324
+[2024-06-24 22:27:36,300][demucs.solver][INFO] - [1mTrain Summary | Epoch 21 | Loss=0.1018 | Reco=0.1018 | Grad=0.1323[0m
+[2024-06-24 22:27:36,301][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:27:36,301][demucs.solver][INFO] - Cross validation...
+[2024-06-24 22:27:36,301][demucs.solver][INFO] - Start of epoch 21
+[2024-06-24 22:27:36,301][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 22:27:43,463][demucs.solver][INFO] - Valid | Epoch 21 | 3/14 | 0.56 it/sec | Loss 0.1646 | Reco 0.1646 | Nsdr 6.136
+[2024-06-24 22:27:51,300][demucs.solver][INFO] - Valid | Epoch 21 | 6/14 | 0.47 it/sec | Loss 0.1604 | Reco 0.1604 | Nsdr 6.062
+[2024-06-24 22:27:59,578][demucs.solver][INFO] - Valid | Epoch 21 | 9/14 | 0.43 it/sec | Loss 0.1789 | Reco 0.1789 | Nsdr 5.410
+[2024-06-24 22:28:06,206][demucs.solver][INFO] - Valid | Epoch 21 | 12/14 | 0.43 it/sec | Loss 0.1683 | Reco 0.1683 | Nsdr 5.109
+[2024-06-24 22:28:08,334][demucs.solver][INFO] - [1mValid Summary | Epoch 21 | Loss=0.1622 | Reco=0.1622 | Nsdr=5.219 | Best=0.1618 | Bname=main[0m
+[2024-06-24 22:28:15,006][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:28:15,006][demucs.solver][INFO] - Training...
+[2024-06-24 22:28:15,006][demucs.solver][INFO] - Start of epoch 22
+[2024-06-24 22:28:15,006][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 22:30:44,656][demucs.solver][INFO] - Train | Epoch 22 | 111/447 | 0.75 it/sec | Loss 0.1004 | Reco 0.1004 | Grad 0.1351
+[2024-06-24 22:33:04,360][demucs.solver][INFO] - Train | Epoch 22 | 222/447 | 0.77 it/sec | Loss 0.1013 | Reco 0.1013 | Grad 0.1272
+[2024-06-24 22:35:24,486][demucs.solver][INFO] - Train | Epoch 22 | 333/447 | 0.78 it/sec | Loss 0.1001 | Reco 0.1001 | Grad 0.1314
+[2024-06-24 22:37:46,809][demucs.solver][INFO] - Train | Epoch 22 | 444/447 | 0.78 it/sec | Loss 0.1003 | Reco 0.1003 | Grad 0.1400
+[2024-06-24 22:37:49,492][demucs.solver][INFO] - [1mTrain Summary | Epoch 22 | Loss=0.1004 | Reco=0.1004 | Grad=0.1402[0m
+[2024-06-24 22:37:49,493][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:37:49,493][demucs.solver][INFO] - Cross validation...
+[2024-06-24 22:37:49,493][demucs.solver][INFO] - Start of epoch 22
+[2024-06-24 22:37:49,494][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 22:37:57,119][demucs.solver][INFO] - Valid | Epoch 22 | 3/14 | 0.52 it/sec | Loss 0.1619 | Reco 0.1619 | Nsdr 6.247
+[2024-06-24 22:38:05,288][demucs.solver][INFO] - Valid | Epoch 22 | 6/14 | 0.44 it/sec | Loss 0.1585 | Reco 0.1585 | Nsdr 6.160
+[2024-06-24 22:38:13,784][demucs.solver][INFO] - Valid | Epoch 22 | 9/14 | 0.41 it/sec | Loss 0.1749 | Reco 0.1749 | Nsdr 5.568
+[2024-06-24 22:38:20,632][demucs.solver][INFO] - Valid | Epoch 22 | 12/14 | 0.42 it/sec | Loss 0.1645 | Reco 0.1645 | Nsdr 5.255
+[2024-06-24 22:38:22,885][demucs.solver][INFO] - [1mValid Summary | Epoch 22 | Loss=0.1589 | Reco=0.1589 | Nsdr=5.361 | Best=0.1589 | Bname=main[0m
+[2024-06-24 22:38:22,885][demucs.solver][INFO] - [1mNew best valid loss 0.1589[0m
+[2024-06-24 22:38:31,065][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:38:31,065][demucs.solver][INFO] - Training...
+[2024-06-24 22:38:31,065][demucs.solver][INFO] - Start of epoch 23
+[2024-06-24 22:38:31,066][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 22:41:01,555][demucs.solver][INFO] - Train | Epoch 23 | 111/447 | 0.74 it/sec | Loss 0.1011 | Reco 0.1011 | Grad 0.1303
+[2024-06-24 22:43:25,996][demucs.solver][INFO] - Train | Epoch 23 | 222/447 | 0.76 it/sec | Loss 0.1005 | Reco 0.1005 | Grad 0.1273
+[2024-06-24 22:45:44,393][demucs.solver][INFO] - Train | Epoch 23 | 333/447 | 0.77 it/sec | Loss 0.1012 | Reco 0.1012 | Grad 0.1250
+[2024-06-24 22:48:02,805][demucs.solver][INFO] - Train | Epoch 23 | 444/447 | 0.78 it/sec | Loss 0.0999 | Reco 0.0999 | Grad 0.1252
+[2024-06-24 22:48:06,023][demucs.solver][INFO] - [1mTrain Summary | Epoch 23 | Loss=0.0998 | Reco=0.0998 | Grad=0.1250[0m
+[2024-06-24 22:48:06,024][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:48:06,024][demucs.solver][INFO] - Cross validation...
+[2024-06-24 22:48:06,024][demucs.solver][INFO] - Start of epoch 23
+[2024-06-24 22:48:06,024][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 22:48:13,548][demucs.solver][INFO] - Valid | Epoch 23 | 3/14 | 0.53 it/sec | Loss 0.1651 | Reco 0.1651 | Nsdr 6.130
+[2024-06-24 22:48:21,588][demucs.solver][INFO] - Valid | Epoch 23 | 6/14 | 0.45 it/sec | Loss 0.1612 | Reco 0.1612 | Nsdr 6.054
+[2024-06-24 22:48:30,092][demucs.solver][INFO] - Valid | Epoch 23 | 9/14 | 0.42 it/sec | Loss 0.1768 | Reco 0.1768 | Nsdr 5.465
+[2024-06-24 22:48:36,895][demucs.solver][INFO] - Valid | Epoch 23 | 12/14 | 0.42 it/sec | Loss 0.1685 | Reco 0.1685 | Nsdr 5.048
+[2024-06-24 22:48:39,091][demucs.solver][INFO] - [1mValid Summary | Epoch 23 | Loss=0.1623 | Reco=0.1623 | Nsdr=5.180 | Best=0.1589 | Bname=main[0m
+[2024-06-24 22:48:45,818][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:48:45,818][demucs.solver][INFO] - Training...
+[2024-06-24 22:48:45,819][demucs.solver][INFO] - Start of epoch 24
+[2024-06-24 22:48:45,819][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 22:51:20,600][demucs.solver][INFO] - Train | Epoch 24 | 111/447 | 0.72 it/sec | Loss 0.1005 | Reco 0.1005 | Grad 0.1331
+[2024-06-24 22:53:39,760][demucs.solver][INFO] - Train | Epoch 24 | 222/447 | 0.76 it/sec | Loss 0.1004 | Reco 0.1004 | Grad 0.1351
+[2024-06-24 22:55:58,026][demucs.solver][INFO] - Train | Epoch 24 | 333/447 | 0.77 it/sec | Loss 0.1008 | Reco 0.1008 | Grad 0.1394
+[2024-06-24 22:58:19,844][demucs.solver][INFO] - Train | Epoch 24 | 444/447 | 0.78 it/sec | Loss 0.1015 | Reco 0.1015 | Grad 0.1397
+[2024-06-24 22:58:23,449][demucs.solver][INFO] - [1mTrain Summary | Epoch 24 | Loss=0.1014 | Reco=0.1014 | Grad=0.1396[0m
+[2024-06-24 22:58:23,449][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:58:23,449][demucs.solver][INFO] - Cross validation...
+[2024-06-24 22:58:23,450][demucs.solver][INFO] - Start of epoch 24
+[2024-06-24 22:58:23,450][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 22:58:31,046][demucs.solver][INFO] - Valid | Epoch 24 | 3/14 | 0.53 it/sec | Loss 0.1648 | Reco 0.1648 | Nsdr 6.177
+[2024-06-24 22:58:39,131][demucs.solver][INFO] - Valid | Epoch 24 | 6/14 | 0.45 it/sec | Loss 0.1593 | Reco 0.1593 | Nsdr 6.176
+[2024-06-24 22:58:47,658][demucs.solver][INFO] - Valid | Epoch 24 | 9/14 | 0.41 it/sec | Loss 0.1757 | Reco 0.1757 | Nsdr 5.585
+[2024-06-24 22:58:54,479][demucs.solver][INFO] - Valid | Epoch 24 | 12/14 | 0.42 it/sec | Loss 0.1658 | Reco 0.1658 | Nsdr 5.250
+[2024-06-24 22:58:56,690][demucs.solver][INFO] - [1mValid Summary | Epoch 24 | Loss=0.1598 | Reco=0.1598 | Nsdr=5.358 | Best=0.1589 | Bname=main[0m
+[2024-06-24 22:59:03,197][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 22:59:03,198][demucs.solver][INFO] - Training...
+[2024-06-24 22:59:03,198][demucs.solver][INFO] - Start of epoch 25
+[2024-06-24 22:59:03,198][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 23:01:34,441][demucs.solver][INFO] - Train | Epoch 25 | 111/447 | 0.74 it/sec | Loss 0.0981 | Reco 0.0981 | Grad 0.1339
+[2024-06-24 23:03:50,712][demucs.solver][INFO] - Train | Epoch 25 | 222/447 | 0.78 it/sec | Loss 0.0988 | Reco 0.0988 | Grad 0.1313
+[2024-06-24 23:06:09,728][demucs.solver][INFO] - Train | Epoch 25 | 333/447 | 0.78 it/sec | Loss 0.0971 | Reco 0.0971 | Grad 0.1306
+[2024-06-24 23:08:28,019][demucs.solver][INFO] - Train | Epoch 25 | 444/447 | 0.79 it/sec | Loss 0.0983 | Reco 0.0983 | Grad 0.1308
+[2024-06-24 23:08:30,041][demucs.solver][INFO] - [1mTrain Summary | Epoch 25 | Loss=0.0983 | Reco=0.0983 | Grad=0.1308[0m
+[2024-06-24 23:08:30,041][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:08:30,041][demucs.solver][INFO] - Cross validation...
+[2024-06-24 23:08:30,042][demucs.solver][INFO] - Start of epoch 25
+[2024-06-24 23:08:30,042][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 23:08:37,520][demucs.solver][INFO] - Valid | Epoch 25 | 3/14 | 0.53 it/sec | Loss 0.1691 | Reco 0.1691 | Nsdr 5.874
+[2024-06-24 23:08:45,557][demucs.solver][INFO] - Valid | Epoch 25 | 6/14 | 0.45 it/sec | Loss 0.1652 | Reco 0.1652 | Nsdr 5.877
+[2024-06-24 23:08:54,062][demucs.solver][INFO] - Valid | Epoch 25 | 9/14 | 0.42 it/sec | Loss 0.1817 | Reco 0.1817 | Nsdr 5.259
+[2024-06-24 23:09:00,923][demucs.solver][INFO] - Valid | Epoch 25 | 12/14 | 0.42 it/sec | Loss 0.1706 | Reco 0.1706 | Nsdr 4.938
+[2024-06-24 23:09:03,149][demucs.solver][INFO] - [1mValid Summary | Epoch 25 | Loss=0.1643 | Reco=0.1643 | Nsdr=5.074 | Best=0.1589 | Bname=main[0m
+[2024-06-24 23:09:09,586][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:09:09,586][demucs.solver][INFO] - Training...
+[2024-06-24 23:09:09,586][demucs.solver][INFO] - Start of epoch 26
+[2024-06-24 23:09:09,586][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 23:11:38,736][demucs.solver][INFO] - Train | Epoch 26 | 111/447 | 0.75 it/sec | Loss 0.0961 | Reco 0.0961 | Grad 0.1459
+[2024-06-24 23:13:59,543][demucs.solver][INFO] - Train | Epoch 26 | 222/447 | 0.77 it/sec | Loss 0.0984 | Reco 0.0984 | Grad 0.1384
+[2024-06-24 23:16:20,759][demucs.solver][INFO] - Train | Epoch 26 | 333/447 | 0.77 it/sec | Loss 0.0993 | Reco 0.0993 | Grad 0.1351
+[2024-06-24 23:18:39,368][demucs.solver][INFO] - Train | Epoch 26 | 444/447 | 0.78 it/sec | Loss 0.0993 | Reco 0.0993 | Grad 0.1340
+[2024-06-24 23:18:41,973][demucs.solver][INFO] - [1mTrain Summary | Epoch 26 | Loss=0.0993 | Reco=0.0993 | Grad=0.1341[0m
+[2024-06-24 23:18:41,973][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:18:41,974][demucs.solver][INFO] - Cross validation...
+[2024-06-24 23:18:41,974][demucs.solver][INFO] - Start of epoch 26
+[2024-06-24 23:18:41,974][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 23:18:49,504][demucs.solver][INFO] - Valid | Epoch 26 | 3/14 | 0.53 it/sec | Loss 0.1569 | Reco 0.1569 | Nsdr 6.483
+[2024-06-24 23:18:57,586][demucs.solver][INFO] - Valid | Epoch 26 | 6/14 | 0.45 it/sec | Loss 0.1564 | Reco 0.1564 | Nsdr 6.275
+[2024-06-24 23:19:06,082][demucs.solver][INFO] - Valid | Epoch 26 | 9/14 | 0.41 it/sec | Loss 0.1754 | Reco 0.1754 | Nsdr 5.582
+[2024-06-24 23:19:12,882][demucs.solver][INFO] - Valid | Epoch 26 | 12/14 | 0.42 it/sec | Loss 0.1666 | Reco 0.1666 | Nsdr 5.241
+[2024-06-24 23:19:15,066][demucs.solver][INFO] - [1mValid Summary | Epoch 26 | Loss=0.1606 | Reco=0.1606 | Nsdr=5.365 | Best=0.1589 | Bname=main[0m
+[2024-06-24 23:19:21,765][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:19:21,765][demucs.solver][INFO] - Training...
+[2024-06-24 23:19:21,765][demucs.solver][INFO] - Start of epoch 27
+[2024-06-24 23:19:21,766][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 23:21:51,135][demucs.solver][INFO] - Train | Epoch 27 | 111/447 | 0.75 it/sec | Loss 0.0956 | Reco 0.0956 | Grad 0.1355
+[2024-06-24 23:24:07,081][demucs.solver][INFO] - Train | Epoch 27 | 222/447 | 0.78 it/sec | Loss 0.0963 | Reco 0.0963 | Grad 0.1201
+[2024-06-24 23:26:26,421][demucs.solver][INFO] - Train | Epoch 27 | 333/447 | 0.79 it/sec | Loss 0.0950 | Reco 0.0950 | Grad 0.1239
+[2024-06-24 23:28:49,915][demucs.solver][INFO] - Train | Epoch 27 | 444/447 | 0.78 it/sec | Loss 0.0953 | Reco 0.0953 | Grad 0.1258
+[2024-06-24 23:28:52,256][demucs.solver][INFO] - [1mTrain Summary | Epoch 27 | Loss=0.0952 | Reco=0.0952 | Grad=0.1258[0m
+[2024-06-24 23:28:52,256][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:28:52,256][demucs.solver][INFO] - Cross validation...
+[2024-06-24 23:28:52,257][demucs.solver][INFO] - Start of epoch 27
+[2024-06-24 23:28:52,257][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 23:28:59,678][demucs.solver][INFO] - Valid | Epoch 27 | 3/14 | 0.54 it/sec | Loss 0.1612 | Reco 0.1612 | Nsdr 6.318
+[2024-06-24 23:29:07,711][demucs.solver][INFO] - Valid | Epoch 27 | 6/14 | 0.45 it/sec | Loss 0.1569 | Reco 0.1569 | Nsdr 6.274
+[2024-06-24 23:29:16,111][demucs.solver][INFO] - Valid | Epoch 27 | 9/14 | 0.42 it/sec | Loss 0.1710 | Reco 0.1710 | Nsdr 5.710
+[2024-06-24 23:29:23,027][demucs.solver][INFO] - Valid | Epoch 27 | 12/14 | 0.42 it/sec | Loss 0.1619 | Reco 0.1619 | Nsdr 5.376
+[2024-06-24 23:29:25,297][demucs.solver][INFO] - [1mValid Summary | Epoch 27 | Loss=0.1559 | Reco=0.1559 | Nsdr=5.505 | Best=0.1559 | Bname=main[0m
+[2024-06-24 23:29:25,297][demucs.solver][INFO] - [1mNew best valid loss 0.1559[0m
+[2024-06-24 23:29:33,772][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:29:33,772][demucs.solver][INFO] - Training...
+[2024-06-24 23:29:33,772][demucs.solver][INFO] - Start of epoch 28
+[2024-06-24 23:29:33,773][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 23:32:03,684][demucs.solver][INFO] - Train | Epoch 28 | 111/447 | 0.75 it/sec | Loss 0.1005 | Reco 0.1005 | Grad 0.1208
+[2024-06-24 23:34:24,844][demucs.solver][INFO] - Train | Epoch 28 | 222/447 | 0.77 it/sec | Loss 0.0981 | Reco 0.0981 | Grad 0.1309
+[2024-06-24 23:36:48,165][demucs.solver][INFO] - Train | Epoch 28 | 333/447 | 0.77 it/sec | Loss 0.0961 | Reco 0.0961 | Grad 0.1291
+[2024-06-24 23:39:07,021][demucs.solver][INFO] - Train | Epoch 28 | 444/447 | 0.78 it/sec | Loss 0.0960 | Reco 0.0960 | Grad 0.1308
+[2024-06-24 23:39:09,556][demucs.solver][INFO] - [1mTrain Summary | Epoch 28 | Loss=0.0960 | Reco=0.0960 | Grad=0.1311[0m
+[2024-06-24 23:39:09,556][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:39:09,556][demucs.solver][INFO] - Cross validation...
+[2024-06-24 23:39:09,557][demucs.solver][INFO] - Start of epoch 28
+[2024-06-24 23:39:09,557][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 23:39:17,034][demucs.solver][INFO] - Valid | Epoch 28 | 3/14 | 0.53 it/sec | Loss 0.1606 | Reco 0.1606 | Nsdr 6.233
+[2024-06-24 23:39:25,149][demucs.solver][INFO] - Valid | Epoch 28 | 6/14 | 0.45 it/sec | Loss 0.1580 | Reco 0.1580 | Nsdr 6.191
+[2024-06-24 23:39:33,657][demucs.solver][INFO] - Valid | Epoch 28 | 9/14 | 0.41 it/sec | Loss 0.1748 | Reco 0.1748 | Nsdr 5.564
+[2024-06-24 23:39:40,497][demucs.solver][INFO] - Valid | Epoch 28 | 12/14 | 0.42 it/sec | Loss 0.1654 | Reco 0.1654 | Nsdr 5.104
+[2024-06-24 23:39:42,681][demucs.solver][INFO] - [1mValid Summary | Epoch 28 | Loss=0.1597 | Reco=0.1597 | Nsdr=5.224 | Best=0.1559 | Bname=main[0m
+[2024-06-24 23:39:49,285][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:39:49,286][demucs.solver][INFO] - Training...
+[2024-06-24 23:39:49,286][demucs.solver][INFO] - Start of epoch 29
+[2024-06-24 23:39:49,286][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 23:42:15,755][demucs.solver][INFO] - Train | Epoch 29 | 111/447 | 0.76 it/sec | Loss 0.0909 | Reco 0.0909 | Grad 0.1305
+[2024-06-24 23:44:35,699][demucs.solver][INFO] - Train | Epoch 29 | 222/447 | 0.78 it/sec | Loss 0.0920 | Reco 0.0920 | Grad 0.1330
+[2024-06-24 23:46:55,018][demucs.solver][INFO] - Train | Epoch 29 | 333/447 | 0.78 it/sec | Loss 0.0938 | Reco 0.0938 | Grad 0.1309
+[2024-06-24 23:49:17,385][demucs.solver][INFO] - Train | Epoch 29 | 444/447 | 0.78 it/sec | Loss 0.0934 | Reco 0.0934 | Grad 0.1328
+[2024-06-24 23:49:19,776][demucs.solver][INFO] - [1mTrain Summary | Epoch 29 | Loss=0.0933 | Reco=0.0933 | Grad=0.1334[0m
+[2024-06-24 23:49:19,776][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:49:19,776][demucs.solver][INFO] - Cross validation...
+[2024-06-24 23:49:19,777][demucs.solver][INFO] - Start of epoch 29
+[2024-06-24 23:49:19,777][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 23:49:27,365][demucs.solver][INFO] - Valid | Epoch 29 | 3/14 | 0.53 it/sec | Loss 0.1572 | Reco 0.1572 | Nsdr 6.432
+[2024-06-24 23:49:35,467][demucs.solver][INFO] - Valid | Epoch 29 | 6/14 | 0.45 it/sec | Loss 0.1563 | Reco 0.1563 | Nsdr 6.275
+[2024-06-24 23:49:43,968][demucs.solver][INFO] - Valid | Epoch 29 | 9/14 | 0.41 it/sec | Loss 0.1729 | Reco 0.1729 | Nsdr 5.657
+[2024-06-24 23:49:50,937][demucs.solver][INFO] - Valid | Epoch 29 | 12/14 | 0.42 it/sec | Loss 0.1624 | Reco 0.1624 | Nsdr 5.378
+[2024-06-24 23:49:53,303][demucs.solver][INFO] - [1mValid Summary | Epoch 29 | Loss=0.1566 | Reco=0.1566 | Nsdr=5.489 | Best=0.1559 | Bname=main[0m
+[2024-06-24 23:49:59,958][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:49:59,958][demucs.solver][INFO] - Training...
+[2024-06-24 23:49:59,959][demucs.solver][INFO] - Start of epoch 30
+[2024-06-24 23:49:59,959][demucs.solver][INFO] - Total batches: 447
+[2024-06-24 23:52:34,597][demucs.solver][INFO] - Train | Epoch 30 | 111/447 | 0.72 it/sec | Loss 0.0844 | Reco 0.0844 | Grad 0.1300
+[2024-06-24 23:54:54,249][demucs.solver][INFO] - Train | Epoch 30 | 222/447 | 0.76 it/sec | Loss 0.0890 | Reco 0.0890 | Grad 0.1290
+[2024-06-24 23:57:15,500][demucs.solver][INFO] - Train | Epoch 30 | 333/447 | 0.77 it/sec | Loss 0.0918 | Reco 0.0918 | Grad 0.1313
+[2024-06-24 23:59:30,988][demucs.solver][INFO] - Train | Epoch 30 | 444/447 | 0.78 it/sec | Loss 0.0927 | Reco 0.0927 | Grad 0.1298
+[2024-06-24 23:59:33,672][demucs.solver][INFO] - [1mTrain Summary | Epoch 30 | Loss=0.0925 | Reco=0.0925 | Grad=0.1304[0m
+[2024-06-24 23:59:33,673][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-24 23:59:33,673][demucs.solver][INFO] - Cross validation...
+[2024-06-24 23:59:33,673][demucs.solver][INFO] - Start of epoch 30
+[2024-06-24 23:59:33,673][demucs.solver][INFO] - Total batches: 14
+[2024-06-24 23:59:41,238][demucs.solver][INFO] - Valid | Epoch 30 | 3/14 | 0.53 it/sec | Loss 0.1567 | Reco 0.1567 | Nsdr 6.520
+[2024-06-24 23:59:49,310][demucs.solver][INFO] - Valid | Epoch 30 | 6/14 | 0.45 it/sec | Loss 0.1564 | Reco 0.1564 | Nsdr 6.323
+[2024-06-24 23:59:57,859][demucs.solver][INFO] - Valid | Epoch 30 | 9/14 | 0.41 it/sec | Loss 0.1725 | Reco 0.1725 | Nsdr 5.721
+[2024-06-25 00:00:04,769][demucs.solver][INFO] - Valid | Epoch 30 | 12/14 | 0.42 it/sec | Loss 0.1636 | Reco 0.1636 | Nsdr 5.375
+[2024-06-25 00:00:06,982][demucs.solver][INFO] - [1mValid Summary | Epoch 30 | Loss=0.1579 | Reco=0.1579 | Nsdr=5.485 | Best=0.1559 | Bname=main[0m
+[2024-06-25 00:00:06,982][demucs.solver][INFO] - ----------------------------------------------------------------------
+[2024-06-25 00:00:06,984][demucs.solver][INFO] - Evaluating on the test set...
+[2024-06-25 00:31:37,307][demucs.evaluate][INFO] - Eval | 12/50 | 145.2 sec/it
+[2024-06-25 01:02:49,213][demucs.evaluate][INFO] - Eval | 24/50 | 150.4 sec/it
+[2024-06-25 01:30:17,207][demucs.evaluate][INFO] - Eval | 36/50 | 146.2 sec/it
+[2024-06-25 01:59:05,600][demucs.evaluate][INFO] - Eval | 48/50 | 145.6 sec/it
+[2024-06-25 02:01:30,015][demucs.solver][INFO] - [1mTest Summary | Epoch 30 | Sdr=0.951 | Nsdr=0.964 | Sdr_drums=6.025 | Nsdr_drums=5.747 | Sdr_bass=-1.500 | Nsdr_bass=-1.235 | Sdr_other=-0.303 | Nsdr_other=-0.299 | Sdr_vocals=-0.420 | Nsdr_vocals=-0.357[0m

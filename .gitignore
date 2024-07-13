@@ -16,3 +16,4 @@ Session.vim
 /mdx
 .mypy_cache
 /datasets
+*.mp3
