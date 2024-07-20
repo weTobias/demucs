@@ -94,81 +94,78 @@ def evaluate(solver, compute_sdr=False):
     indexes = range(distrib.rank, len(test_set), distrib.world_size)
     indexes = LogProgress(logger, indexes, updates=args.misc.num_prints,
                           name='Eval')
-    pendings = []
+    
+    tracks = {}
+    for index in indexes:
+        track = test_set.tracks[index]
 
-    pool = futures.ProcessPoolExecutor if args.test.workers else DummyPoolExecutor
-    with pool(args.test.workers) as pool:
-        for index in indexes:
-            track = test_set.tracks[index]
+        mix = th.from_numpy(track.audio).t().float()
+        if mix.dim() == 1:
+            mix = mix[None]
+        mix = mix.to(solver.device)
+        ref = mix.mean(dim=0)  # mono mixture
+        mix = (mix - ref.mean()) / ref.std()
+        mix = convert_audio(mix, src_rate, model.samplerate, model.audio_channels)
+        estimates = apply_model(model, mix[None],
+                                shifts=args.test.shifts, split=args.test.split,
+                                overlap=args.test.overlap)[0]
+        estimates = estimates * ref.std() + ref.mean()
+        estimates = estimates.to(eval_device)
 
-            mix = th.from_numpy(track.audio).t().float()
-            if mix.dim() == 1:
-                mix = mix[None]
-            mix = mix.to(solver.device)
-            ref = mix.mean(dim=0)  # mono mixture
-            mix = (mix - ref.mean()) / ref.std()
-            mix = convert_audio(mix, src_rate, model.samplerate, model.audio_channels)
-            estimates = apply_model(model, mix[None],
-                                    shifts=args.test.shifts, split=args.test.split,
-                                    overlap=args.test.overlap)[0]
-            estimates = estimates * ref.std() + ref.mean()
-            estimates = estimates.to(eval_device)
+        references = th.stack(
+            [th.from_numpy(track.targets[name].audio).t() for name in model.sources])
+        if references.dim() == 2:
+            references = references[:, None]
+        references = references.to(eval_device)
+        references = convert_audio(references, src_rate,
+                                    model.samplerate, model.audio_channels)
+        if args.test.save:
+            folder = solver.folder / "wav" / track.name
+            folder.mkdir(exist_ok=True, parents=True)
+            for name, estimate in zip(model.sources, estimates):
+                save_audio(estimate.cpu(), folder / (name + ".mp3"), model.samplerate)
 
-            references = th.stack(
-                [th.from_numpy(track.targets[name].audio).t() for name in model.sources])
-            if references.dim() == 2:
-                references = references[:, None]
-            references = references.to(eval_device)
-            references = convert_audio(references, src_rate,
-                                       model.samplerate, model.audio_channels)
-            if args.test.save:
-                folder = solver.folder / "wav" / track.name
-                folder.mkdir(exist_ok=True, parents=True)
-                for name, estimate in zip(model.sources, estimates):
-                    save_audio(estimate.cpu(), folder / (name + ".mp3"), model.samplerate)
+        result = eval_track(references=references, estimates=estimates, win=win, hop=hop, compute_sdr=compute_sdr)
 
-            result = eval_track(references=references, estimates=estimates, win=win, hop=hop, compute_sdr=compute_sdr)
-            pendings.append((track.name, pool.submit(lambda : result)))
-
-        pendings = LogProgress(logger, pendings, updates=0,
-                               name='Eval (BSS)')
-        tracks = {}
-        for track_name, pending in pendings:
-            pending = pending.result()
-            scores, nsdrs = pending
-            tracks[track_name] = {}
+        logger.info('After pending result: ' + track.name)
+        
+        scores, nsdrs = result
+        logger.info(f'Pending scores: {scores}')
+        logger.info(f'Pending nsdrs: {nsdrs}')
+        tracks[track.name] = {}
+        for idx, target in enumerate(model.sources):
+            tracks[track.name][target] = {'nsdr': [float(nsdrs[idx])]}
+        if scores is not None:
+            (sdr, isr, sir, sar) = scores
             for idx, target in enumerate(model.sources):
-                tracks[track_name][target] = {'nsdr': [float(nsdrs[idx])]}
-            if scores is not None:
-                (sdr, isr, sir, sar) = scores
-                for idx, target in enumerate(model.sources):
-                    values = {
-                        "SDR": sdr[idx].tolist(),
-                        "SIR": sir[idx].tolist(),
-                        "ISR": isr[idx].tolist(),
-                        "SAR": sar[idx].tolist()
-                    }
-                    tracks[track_name][target].update(values)
+                values = {
+                    "SDR": sdr[idx].tolist(),
+                    "SIR": sir[idx].tolist(),
+                    "ISR": isr[idx].tolist(),
+                    "SAR": sar[idx].tolist()
+                }
+                tracks[track.name][target].update(values)
+        
 
-        all_tracks = {}
-        for src in range(distrib.world_size):
-            all_tracks.update(distrib.share(tracks, src))
+    all_tracks = {}
+    for src in range(distrib.world_size):
+        all_tracks.update(distrib.share(tracks, src))
 
-        result = {}
-        metric_names = next(iter(all_tracks.values()))[model.sources[0]]
-        for metric_name in metric_names:
-            avg = 0
-            avg_of_medians = 0
-            for source in model.sources:
-                medians = [
-                    np.nanmedian(all_tracks[track][source][metric_name])
-                    for track in all_tracks.keys()]
-                mean = np.mean(medians)
-                median = np.median(medians)
-                result[metric_name.lower() + "_" + source] = mean
-                result[metric_name.lower() + "_med" + "_" + source] = median
-                avg += mean / len(model.sources)
-                avg_of_medians += median / len(model.sources)
-            result[metric_name.lower()] = avg
-            result[metric_name.lower() + "_med"] = avg_of_medians
-        return result
+    result = {}
+    metric_names = next(iter(all_tracks.values()))[model.sources[0]]
+    for metric_name in metric_names:
+        avg = 0
+        avg_of_medians = 0
+        for source in model.sources:
+            medians = [
+                np.nanmedian(all_tracks[track][source][metric_name])
+                for track in all_tracks.keys()]
+            mean = np.mean(medians)
+            median = np.median(medians)
+            result[metric_name.lower() + "_" + source] = mean
+            result[metric_name.lower() + "_med" + "_" + source] = median
+            avg += mean / len(model.sources)
+            avg_of_medians += median / len(model.sources)
+        result[metric_name.lower()] = avg
+        result[metric_name.lower() + "_med"] = avg_of_medians
+    return result
