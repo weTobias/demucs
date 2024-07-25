@@ -127,11 +127,7 @@ def evaluate(solver, compute_sdr=False):
 
         result = eval_track(references=references, estimates=estimates, win=win, hop=hop, compute_sdr=compute_sdr)
 
-        logger.info('After pending result: ' + track.name)
-        
         scores, nsdrs = result
-        logger.info(f'Pending scores: {scores}')
-        logger.info(f'Pending nsdrs: {nsdrs}')
         tracks[track.name] = {}
         for idx, target in enumerate(model.sources):
             tracks[track.name][target] = {'nsdr': [float(nsdrs[idx])]}
