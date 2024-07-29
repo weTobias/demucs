@@ -185,40 +185,40 @@ class Solver(object):
                 bold(f'Valid Summary | Epoch {epoch + 1} | {_summary(formatted)}'))
             if 'test' in metrics:
             # NOTE: disabled temporarily to retake every test    
-            #    formatted = self._format_test(metrics['test'])
-            #    if formatted:
-            #        logger.info(bold(f"Test Summary | Epoch {epoch + 1} | {_summary(formatted)}"))
+                formatted = self._format_test(metrics['test'])
+                if formatted:
+                    logger.info(bold(f"Test Summary | Epoch {epoch + 1} | {_summary(formatted)}"))
 
             # NOTE: this code needs to be removed after tests were retaken
-                is_last = epoch == self.args.epochs - 1
-                checkpoint_file = self.folder / f'checkpoint_{epoch + 1}.th'
-                if is_last:
-                    checkpoint_file = self.folder / 'checkpoint.th'
-                if checkpoint_file.exists():
-                    package = torch.load(checkpoint_file, 'cpu')
-                    best_state = package['best_state']
-                    current_state = package['state']
-                    current_history = package['history'] 
-                    # Evaluate on the testset
-                    logger.info('-' * 70)
-                    logger.info('Evaluating on the test set...')
-                    # We switch to the best known model for testing
-                    if self.args.test.best:
-                        state = best_state
-                    else:
-                        state = current_state
-                    compute_sdr = self.args.test.sdr and is_last
-                    with states.swap_state(self.model, state):
-                        with torch.no_grad():
-                            metrics['test'] = evaluate(self, compute_sdr=compute_sdr)
-                    formatted = self._format_test(metrics['test'])
-                    logger.info(bold(f"Test Summary | Epoch {epoch + 1} | {_summary(formatted)}"))
-                    logger.info(f'History: {self.history} ')
-                    self.link.update_history(self.history)
-                    current_history[epoch] = metrics
-                    package['history'] = current_history
-                    with write_and_rename(checkpoint_file) as tmp:
-                        torch.save(package, tmp)
+            #    is_last = epoch == self.args.epochs - 1
+            #    checkpoint_file = self.folder / f'checkpoint_{epoch + 1}.th'
+            #    if is_last:
+            #        checkpoint_file = self.folder / 'checkpoint.th'
+            #    if checkpoint_file.exists():
+            #        package = torch.load(checkpoint_file, 'cpu')
+            #        best_state = package['best_state']
+            #        current_state = package['state']
+            #        current_history = package['history'] 
+            #        # Evaluate on the testset
+            #        logger.info('-' * 70)
+            #        logger.info('Evaluating on the test set...')
+            #        # We switch to the best known model for testing
+            #        if self.args.test.best:
+            #            state = best_state
+            #        else:
+            #            state = current_state
+            #        compute_sdr = self.args.test.sdr and is_last
+            #        with states.swap_state(self.model, state):
+            #            with torch.no_grad():
+            #                metrics['test'] = evaluate(self, compute_sdr=compute_sdr)
+            #        formatted = self._format_test(metrics['test'])
+            #        logger.info(bold(f"Test Summary | Epoch {epoch + 1} | {_summary(formatted)}"))
+            #        logger.info(f'History: {self.history} ')
+            #        self.link.update_history(self.history)
+            #        current_history[epoch] = metrics
+            #        package['history'] = current_history
+            #        with write_and_rename(checkpoint_file) as tmp:
+            #            torch.save(package, tmp)
 
                 
 

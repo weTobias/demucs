@@ -8,7 +8,9 @@ commands=(
     ##"dora run -f 27be639a"
     ##"dora run -f 81b48f2b"
     ##"dora run -f b742cdd5"
-    "dora run -f fb217f1a"
+    ##"dora run -f fb217f1a"
+    "dora run -f 7ccb0b5c"
+    "dora run -f c649697b"
 )
 
 # Execute each command sequentially

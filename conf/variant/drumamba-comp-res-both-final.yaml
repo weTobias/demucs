@@ -1,0 +1,44 @@
+# @package _global_
+
+dset:
+  segment: 11
+  sources: ['drums', 'bass', 'other', 'vocals']
+  shift: 0
+
+test:
+  every: 10
+  save: True
+  sdr: True
+
+epochs: 120
+
+save_every: 5
+weights: [1., 0., 0., 0.]
+
+misc:
+  #show: true
+  num_workers: 0
+
+augment:
+  shift_same: false
+  repitch:
+    proba: 0.2
+    max_tempo: 12
+  remix:
+    proba: 1
+    group_size: 4
+  scale:
+    proba: 1
+    min: 0.25
+    max: 1.25
+  flip: true
+
+model: drumamba
+
+batch_size: 4
+
+
+drumamba:
+  mamba_layers: 0
+  comp_res_mode: 3
+  comp_res_start: 1
